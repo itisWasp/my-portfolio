@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+
+.topnav {
+    overflow: hidden;
+    background-color: #FFB563;
+    filter: drop-shadow(0px 1.5px 2px #000000c5);
+  }
+
+.topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    
+}
+
+.topnav a.blog {
+    float: right;
+    margin-left: 20px;
+    color: black;
+}
+
+.button {
+    float: right;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+  
+.button1 {
+    border-radius: 20px; 
+    color: black; 
+    background-color: #FEFAE0; 
+    border: 0.5px solid black;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+.button2 {
+    border-radius: 50px; 
+    color: white;
+    background-color: #0000004f;
+    font-weight: bold;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#primary {
+    overflow: hidden;
+    height: auto;
+    background-color: #FEFAE0;
+}
+
+.right-image{
+    position: relative;
+    border-radius: 50%;
+    width: 444px;
+    height: auto;
+    left: 463px;
+    top: 30px;
+}
+
+.name{
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 23px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.career{
+    font-family: 'Abel', sans-serif;
+    text-align: center;
+    font-size: 23px;
+    
+}
+.quote{
+    font-family: 'Aubrey', cursive;
+    font-size: 23px;
+    text-align: center;
+}
+
+.buttons {
+
+    font-family: 'Abel', sans-serif;
+    background-color: #ff990073; /* Green */
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 50px;
+    cursor: pointer;
+    border: 0.5px solid black;
+    box-shadow: 1px 2.5px 0px rgba(0, 0, 0, 0.164);
+    
+
+}
+
+.button11 {
+    left: 250px;
+    position: relative;
+    margin-right: 250px;
+    width: 150px;
+}
+.button22 {
+    width: 150px;
+    margin-right: 10px;
+}
+.button33 {
+    width: 150px;
+    margin-right: 10px;
+}
+.button44 {
+    width: 150px;
+}
+
