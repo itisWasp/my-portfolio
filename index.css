@@ -1,3 +1,5 @@
+/* main page CSS*/
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -58,7 +60,7 @@ body {
     height: auto;
     background-color: #FEFAE0;
 }
-
+/*
 .circular--portrait { 
     position: relative; 
     width: 200px; 
@@ -72,13 +74,31 @@ body {
 .circular--portrait img { 
     width: 100%; 
     height: 100%; 
+}*/
+
+.circular--landscape { 
+    display: inline-block; 
+    position: relative; 
+    width: 260px; 
+    height: 260px; 
+    overflow: hidden; 
+    border-radius: 50%; 
+    left: 540px;
+    top: 120px;
+} 
+.circular--landscape img { 
+    width: auto; 
+    height: 100%; 
+    margin-left: -45px;
+    
 }
+
 
 .name{
     font-family: 'ABeeZee', sans-serif;
     font-size: 23px;
     text-align: center;
-    padding-top: 12%;
+    padding-top: 8%;
 }
 
 .career{
@@ -130,3 +150,22 @@ body {
     width: 150px;
 }
 
+
+/* Service Page Css*/
+
+.service{
+    position: relative;
+    font-family: 'Abel';
+    font-size: 50px;
+    float: left;
+    margin-left: 40px;
+}
+
+.vl {
+    border-left: 215px solid #F7B045;
+    height: 1px;
+    position: absolute;
+    left: 3.5%;
+    margin-left: -3px;
+    top: 115%;
+}
