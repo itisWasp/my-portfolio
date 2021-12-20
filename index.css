@@ -169,3 +169,190 @@ body {
     margin-left: -3px;
     top: 115%;
 }
+
+
+
+.service-intro{
+    font-family: 'Abel';
+    font-family: 'Caudex', serif;
+    font-size: 25px;
+    position: absolute;
+    padding-top: 140px;
+    padding-left: 40px;
+}
+
+.analysis--landscape { 
+    display: inline-block; 
+    position: relative; 
+    width: 160px; 
+    height: 160px; 
+    overflow: hidden; 
+    left: -190px;
+    top: 350px;
+} 
+.analysis--landscape img { 
+    width: 100%; 
+    height: auto; 
+}
+
+.analysis{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    position: relative;
+    top: 160px;
+    padding-left: 150px;
+}
+
+.about-analysis{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    opacity: 60%;
+    padding-left: 150px;
+    top: 150px;
+}
+
+.more-analysis{
+    position: relative;
+    padding-left: 150px;
+    color: #214ADC;
+    text-decoration: none;
+    top: 135px;
+}
+
+
+.analytics--landscape { 
+    display: inline-block; 
+    position: relative; 
+    width: 160px; 
+    height: 160px; 
+    overflow: hidden; 
+    left: 0;
+    top: 180px;
+} 
+.analytics--landscape img { 
+    width: 100%; 
+    height: auto; 
+}
+
+.analytics{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+    padding-left: 150px;
+}
+
+.about-analytics{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    opacity: 60%;
+    padding-left: 150px;
+    top: 10px;
+}
+
+.more-analytics{
+    position: relative;
+    padding-left: 150px;
+    top: -5px;
+    color: #214ADC;
+    text-decoration: none;
+}
+
+
+.dashboard--landscape { 
+    display: inline-block; 
+    position: relative; 
+    width: 160px; 
+    height: 160px; 
+    overflow: hidden; 
+    left: 0px;
+    top: 350px;
+} 
+.dashboard--landscape img { 
+    width: 100%; 
+    height: auto; 
+}
+
+.dashboard{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    position: relative;
+    top: 160px;
+    padding-left: 150px;
+}
+
+.about-dashboard{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    opacity: 60%;
+    padding-left: 150px;
+    top: 150px;
+}
+
+.more-dashboard{
+    position: relative;
+    padding-left: 150px;
+    color: #214ADC;
+    text-decoration: none;
+    top: 135px;
+}
+
+
+.fullstack--landscape { 
+    display: inline-block; 
+    position: relative; 
+    width: 160px; 
+    height: 160px; 
+    overflow: hidden; 
+    left: 0;
+    top: 180px;
+} 
+.fullstack--landscape img { 
+    width: 100%; 
+    height: auto; 
+}
+
+.fullstack{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+    padding-left: 150px;
+}
+
+.about-fullstack{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    opacity: 60%;
+    padding-left: 150px;
+    top: 10px;
+}
+
+.more-fullstack{
+    position: relative;
+    padding-left: 150px;
+    top: -5px;
+    color: #214ADC;
+    text-decoration: none;
+}
+
+.data-dashboard{
+    position: relative;
+    float: right;
+    right: 30%;
+
+}
+
+.data-fullstack{
+    position: relative;
+    float: right;
+    right: 3.5%;
+    bottom: -320px;
+}
+
+.all-services{
+    margin: auto;
+}
+
+
+/*About Me Page CSS*/
