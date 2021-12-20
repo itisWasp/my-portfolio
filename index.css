@@ -227,7 +227,7 @@ body {
     height: 160px; 
     overflow: hidden; 
     left: 0;
-    top: 180px;
+    top: 140px;
 } 
 .analytics--landscape img { 
     width: 100%; 
@@ -346,7 +346,7 @@ body {
 .data-fullstack{
     position: relative;
     float: right;
-    right: 3.5%;
+    right: 0%;
     bottom: -320px;
 }
 
@@ -356,3 +356,84 @@ body {
 
 
 /*About Me Page CSS*/
+
+#secondary {
+    overflow: hidden;
+    height: auto;
+    background-color: #FEFAE0;
+}
+
+
+.me{
+    color: #F85E00;
+    position: relative;
+    font-family: 'Abel';
+    font-size: 50px;
+    float: left;
+    margin-left: 40px;
+}
+
+.my-story{
+    font-family: 'Abel';
+    font-size: 25px;
+    position: relative;
+    padding-top: 140px;
+    padding-left: 40px;
+}
+
+.about--landscape { 
+    display: inline-block; 
+    position: relative; 
+    width: 260px; 
+    height: 260px; 
+    overflow: hidden; 
+    border-radius: 50%; 
+    float: right;
+    right: 10%;
+    top: 150px;
+
+} 
+.about--landscape img { 
+    width: auto; 
+    height: 100%; 
+    margin-left: -45px;
+    
+}
+
+.get{
+    width: auto;
+    height: 10%;
+    background-color: #FFB563;
+}
+
+.line{
+    font-family: 'Abel';
+    font-size: 30px;
+    text-align: center;
+}
+
+.reach {
+    background-color: #FEFAE0; /* Green */
+    border: none;
+    font-family: 'Abel';
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 26px;
+    margin: 4px 320px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.reach:hover {
+    background-color: #4CAF50; /* Green */
+    color: #FEFAE0;
+  }
+
+.out {
+    width: 50%;
+    border-radius: 20px;
+    
+}

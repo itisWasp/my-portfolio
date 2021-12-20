@@ -11,3 +11,7 @@ scrollTo = (element) =>{
 document.getElementById("first").addEventListener('click', () => {
     scrollTo(document.getElementById('services'));
 });
+
+document.getElementById("second").addEventListener('click', () => {
+    scrollTo(document.getElementById('secondary'));
+});
