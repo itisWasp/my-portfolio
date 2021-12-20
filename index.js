@@ -15,3 +15,7 @@ document.getElementById("first").addEventListener('click', () => {
 document.getElementById("second").addEventListener('click', () => {
     scrollTo(document.getElementById('secondary'));
 });
+
+document.getElementById('third').addEventListener('click', () => {
+    scrollTo(document.getElementById('project'));
+});
