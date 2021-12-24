@@ -47,6 +47,33 @@ body {
     color: black;
 }
 
+.topnav a.blog:hover{
+    color: #08415C;
+}
+
+a.blog
+{
+    position: relative;
+}
+
+a.blog:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 5px;
+  left: 0;
+  background-color: #FFF;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+a.blog:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
 .button {
     float: right;
     border: none;
@@ -58,27 +85,35 @@ body {
     font-size: 16px;
     margin: 10px 10px;
     cursor: pointer;
+    transition-duration: 0.4s;
 }
+
+.button:hover {
+    background-color: #08415C; /* Green */
+    color: white;
+    font-weight: bolder;
+  }
   
 .button1 {
     border-radius: 20px; 
-    color: black; 
-    background-color: #FEFAE0; 
-    border: 0.5px solid black;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    color: white; 
+    font-weight: bold;
+    background-color: #0000004f; 
+    border: 0.5px solid #FFE9CE;
+    box-shadow: 0px 10px 15px rgba(199, 75, 75, 0.1);
 }
 .button2 {
     border-radius: 50px; 
     color: white;
     background-color: #0000004f;
     font-weight: bold;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 15px rgba(199, 75, 75, 0.1);
 }
 
 #primary {
     overflow: hidden;
     height: auto;
-    background-color: #FEFAE0;
+    background-color: #FFE9CE;
 }
 /*
 .circular--portrait { 
@@ -148,9 +183,16 @@ body {
     cursor: pointer;
     border: 0.5px solid black;
     box-shadow: 1px 2.5px 0px rgba(0, 0, 0, 0.164);
+    transition-duration: 0.4s;
     
 
 }
+
+.buttons:hover {
+    background-color: #6B818C; /* Green */
+    color: white;
+    font-weight: bolder;
+  }
 
 .button11 {
     left: 250px;
@@ -380,7 +422,7 @@ body {
 #secondary {
     overflow: hidden;
     height: auto;
-    background-color: #FEFAE0;
+    background-color: #FFE9CE;
 }
 
 
@@ -626,7 +668,7 @@ body {
 #contact{
     overflow: hidden;
     height: auto;
-    background-color: #FEFAE0;
+    background-color: #FFE9CE;
 }
 
 .touch{
