@@ -1,3 +1,17 @@
+.btn {
+    display: flex;
+}
+#menubar{
+    display: none;
+}
+
+
+
+
+
+
+
+
 /* main page CSS*/
 
 #myBtn {
@@ -111,7 +125,7 @@ a.blog:hover:before {
 }
 
 #primary {
-    overflow: hidden;
+    overflow: hidden;           
     height: auto;
     background-color: #FFE9CE;
 }
@@ -132,19 +146,21 @@ a.blog:hover:before {
 }*/
 
 .circular--landscape { 
-    display: inline-block; 
-    position: relative; 
-    width: 260px; 
+    display: flex;  
+    justify-content: center;
+    overflow: hidden;
+ /*   width: 260px; 
     height: 260px; 
     overflow: hidden; 
-    border-radius: 50%; 
-    left: 540px;
-    top: 120px;
+    
+    width: 100%;*/
+    margin-top: 100px;
 } 
 .circular--landscape img { 
-    width: auto; 
-    height: 100%; 
-    margin-left: -45px;
+    width: 250px; 
+    height: 250px;
+    border-radius: 50%; 
+   /* margin-left: -45px;*/
     
 }
 
@@ -153,7 +169,7 @@ a.blog:hover:before {
     font-family: 'ABeeZee', sans-serif;
     font-size: 23px;
     text-align: center;
-    padding-top: 8%;
+    
 }
 
 .career{
@@ -168,6 +184,12 @@ a.blog:hover:before {
     text-align: center;
 }
 
+.btn{
+    display: flex;
+    justify-content: center;
+    
+}
+
 .buttons {
 
     font-family: 'Abel', sans-serif;
@@ -177,7 +199,6 @@ a.blog:hover:before {
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 20px;
     margin: 4px 50px;
     cursor: pointer;
@@ -195,18 +216,17 @@ a.blog:hover:before {
   }
 
 .button11 {
-    left: 250px;
-    position: relative;
-    margin-right: 250px;
+
+  
     width: 150px;
 }
 .button22 {
     width: 150px;
-    margin-right: 10px;
+   
 }
 .button33 {
     width: 150px;
-    margin-right: 10px;
+   
 }
 .button44 {
     width: 150px;
@@ -743,4 +763,87 @@ a.blog:hover:before {
 .cp-text{ color: rgba(0,0,0,.7); 
     text-shadow: 0 1px rgba(255, 255, 255, 0.1);
     text-align: center;
+}
+@media screen and (max-width: 500px){
+  
+
+     #menubar{
+    display: block;
+    float: right;
+    }
+  .button{
+      display: none;
+  }
+  .blog{
+      display: none;
+  }
+  .btn{
+    display: flex;  
+    flex-direction: column; 
+    justify-content: center;                                                                                                                               
+    
+    
+    }
+    .buttons{
+    width: 70%;
+
+ /* .circular--landscape{
+      width: 40%;
+      height: 30%;
+      margin: auto;
+      border: 1px solid black;
+ /* }*/
+  /*.circular--landscape{
+      margin-left:-80%;
+      margin-top:-20%;
+      width: 200px;
+      height: 200px;
+      margin-bottom:10  0px;
+      
+  } */
+
+    }.about--landscape { 
+        display: inline-block; 
+        position: relative; 
+        width: 200px; 
+        height: 200px; 
+        overflow: hidden; 
+        border-radius: 50%; 
+        float: right;
+        right: 2%;
+        top: 10%;
+    
+    } 
+    .about--landscape img { 
+        width: auto; 
+        height: 100%; 
+    }.reach {
+        background-color: #FEFAE0; /* Green */
+        border: none;
+        font-family: 'Abel';
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        font-size: 26px;
+        margin: 2% 25%;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    
+    .reach:hover {
+        background-color: #4CAF50; /* Green */
+        color: #FEFAE0;
+      }
+    
+    .out {
+        width: 50%;
+        border-radius: 20px;
+        
+    }.line{
+        font-size: 25px;
+        
+    }
 }

@@ -25,17 +25,19 @@
     <title>
         My Space
     </title>
-</head>
+</head>                                                                                 
 
 <body>
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
     <div class="topnav">
-        <a class="active" href="#home">MMI</a>
+        <a class="active" href="#home">MMI</a> 
         <button class="button button2" onclick="window.location.href='Pages/Login-Page/login.html';">Login/SignUp</button>
         <button class="button button1">Resume</button>
+        <img src="./Assets/Images/menubar.svg" alt="menu-bar" id="menubar">
         <div class="link-background"></div><a class = "blog" href="Pages/Blog-Page/blog.html">Blog</a></div>
+        
         
     </div>
     
@@ -49,21 +51,21 @@
             <p class="quote">“I want to help businesses make right decisions, data-driven decision.”</p>
         </div>
 
-        
+        <div class="btn" id="btn">
         <button class="buttons button11" id="first">Services</button>
         <button class="buttons button22" id="second">About Me</button>
         <button class="buttons button33" id="third">Portfolio</button>
         <button class="buttons button44" id="fourth">Get in Touch!</button>
-        
+        </div>
 
-    </div>
+        </div>
 
     <!--This is The Service Page-->
     <div class="service-page" id="services">
         
         <p class="service">Services</p>
 
-        <div class="vl"></div>
+        <!--<div class="vl"></div>-->
 
         <p class="service-intro">
             As a freelance data analyst, data scientist and Software Developer, I translate data into valuable and<br> 
@@ -71,56 +73,61 @@
             business in daily tasks. My goal is to improve results, make the right decisions and save costs.
         </p>
 
-        <div class="data-dashboard">
-            <div class="dashboard--landscape"> <img src="Assets/Images/Dashboards.png" /> </div>
-            <p class="dashboard">Dashboards</p>
-            <p class="about-dashboard">
-                I create powerful interactive dashboards<br> 
-                for business to track and examine<br> 
-                patterns.<br>
-            </p>
-            <a class="more-dashboard" href="#learmore">(learn more)</a>
 
-        </div>
-
-        <div class="data-fullstack">
-            <div class="fullstack--landscape"> <img src="Assets/Images/full-stack-.png" /> </div>
-            <p class="fullstack">Full Stack Developer</p>
-            <p class="about-fullstack">
-                I deploy machine learning models in<br> 
-                production by building APIs and<br> 
-                connecting them to the front-end.<br>
-            </p>
-            <a class="more-fullstack" href="#learmore">(learn more)</a>
-        </div>
-
-        <div class="all-services">
-            <div class="data-analysis">
-                <div class="analysis--landscape"> <img src="Assets/Images/analysis.png" /> </div>
-                <p class="analysis">Data Analysis</p>
-                <p class="about-analysis">
-                    I am specialized in analyzing<br> 
-                    data and providing useful<br> 
-                    insights to the business.<br>
+        <div class="new-services">
+            <div class="data-dashboard">
+                <div class="dashboard--landscape"> <img src="Assets/Images/Dashboards.png" /> </div>
+                <p class="dashboard">Dashboards</p>
+                <p class="about-dashboard">
+                    I create powerful interactive dashboards<br> 
+                    for business to track and examine<br> 
+                    patterns.<br>
                 </p>
-                <a class="more-analysis" href="#learmore">(learn more)</a>
-
+                <a class="more-dashboard" href="#learmore">(learn more)</a>
+    
             </div>
-
-            <div class="data-analytics">
-                <div class="analytics--landscape"> <img src="Assets/Images/analytics.jpg" /> </div>
-                <p class="analytics">Data Analytics</p>
-                <p class="about-analytics">
-                    Get valuable insights from<br> 
-                    data using predictive models<br> 
-                    and machine learning.<br>
+    
+            <div class="data-fullstack">
+                <div class="fullstack--landscape"> <img src="Assets/Images/full-stack-.png" /> </div>
+                <p class="fullstack">Full Stack Developer</p>
+                <p class="about-fullstack">
+                    I deploy machine learning models in<br> 
+                    production by building APIs and<br> 
+                    connecting them to the front-end.<br>
                 </p>
-                <a class="more-analytics" href="#learmore">(learn more)</a>
+                <a class="more-fullstack" href="#learmore">(learn more)</a>
+            </div>
+    
+            <div class="all-services">
+                <div class="data-analysis">
+                    <div class="analysis--landscape"> <img src="Assets/Images/analysis.png" /> </div>
+                    <p class="analysis">Data Analysis</p>
+                    <p class="about-analysis">
+                        I am specialized in analyzing<br> 
+                        data and providing useful<br> 
+                        insights to the business.<br>
+                    </p>
+                    <a class="more-analysis" href="#learmore">(learn more)</a>
+    
+                </div>
+    
+                <div class="data-analytics">
+                    <div class="analytics--landscape"> <img src="Assets/Images/analytics.jpg" /> </div>
+                    <p class="analytics">Data Analytics</p>
+                    <p class="about-analytics">
+                        Get valuable insights from<br> 
+                        data using predictive models<br> 
+                        and machine learning.<br>
+                    </p>
+                    <a class="more-analytics" href="#learmore">(learn more)</a>
+                </div>
             </div>
         </div>
+      
+    
+      
         
     </div>
-
     <!--This is The About Me Page-->
     <div class="about-me" id="secondary">
         <p class="me">About Me</p>
@@ -207,6 +214,6 @@
 
     </div>
     
-    <script src="./index.js"></script>
+    <script src="Pages/Main-Page/index.js"></script>
     
 </body>
