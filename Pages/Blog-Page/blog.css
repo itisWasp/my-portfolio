@@ -1,3 +1,7 @@
+body{
+  font-family: 'Ubuntu', sans-serif;
+} 
+
 .topnav {
     overflow: hidden;
     background-color: #264653;
@@ -10,7 +14,8 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 30px;
+    font-family: 'Ubuntu', sans-serif;
     
 }
 
@@ -24,7 +29,7 @@
     float: right;
     border: none;
     color: white;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -36,9 +41,19 @@
 .button2 {
     border-radius: 50px; 
     color: white;
-    background-color: #24A0ED;
+    background: #24A0ED;
     font-weight: bold;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color:#fff;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.button2:hover{
+  border-color:#24A0ED;
+  background-color: #fff;
+  color:#24A0ED;
 }
 
 .img1{
