@@ -1,220 +1,253 @@
-<!DOCTYPE HTML>
-<head>
+
+<!DOCTYPE html> 
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>MMI</title>
     <link rel="stylesheet" href="Pages/Main-Page/index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caudex&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caudex&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aubrey&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <title>
-        My Space
-    </title>
-</head>                                                                                 
-
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
 
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
-    <div class="topnav">
-        <a class="active" href="#home">MMI</a> 
-        <button class="button button2" onclick="window.location.href='Pages/Login-Page/login.html';">Login/SignUp</button>
-        <button class="button button1">Resume</button>
-        <img src="./Assets/Images/menubar.svg" alt="menu-bar" id="menubar">
-        <div class="link-background"></div><a class = "blog" href="Pages/Blog-Page/blog.html">Blog</a></div>
-        
-        
+  <!-- Move to up bottom -->
+  <div class="scroll-button">
+    <a href="#home"><i class="fas fa-arrow-up"></i></a>
+  </div>
+  
+  <!-- navigation menu -->
+  <nav>
+    <div class="navbar">
+      <div class="logo"><a href="#">MMI.</a></div>
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">My Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Reach Out!</a></li>
+        <li><a href="Pages/Blog-Page/blog.html">Blog</a></li>
+        <div class="cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+      </ul>
+      <div class="media-icons">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
     </div>
-    
-    <!--This is the main page-->
-    <div class="main" id="primary">
-        <div class="circular--landscape"> <img src="Assets/Images/my-pic.jpeg" /> </div>
-        <!--<div class="circular--portrait"> <img src="Assets/Images/my-pic.jpeg"/> </div>-->
-        <div class="about-me">
-            <p class="name">Mugisha Muhigirwa Israel</p>
-            <p class="career">Data Scientist | Data Analyst | Software Developer</p>
-            <p class="quote">“I want to help businesses make right decisions, data-driven decision.”</p>
-        </div>
-
-        <div class="btn" id="btn">
-        <button class="buttons button11" id="first">Services</button>
-        <button class="buttons button22" id="second">About Me</button>
-        <button class="buttons button33" id="third">Portfolio</button>
-        <button class="buttons button44" id="fourth">Get in Touch!</button>
-        </div>
-
-        </div>
-
-    <!--This is The Service Page-->
-    <div class="service-page" id="services">
-        
-        <p class="service">Services</p>
-
-        <!--<div class="vl"></div>-->
-
-        <p class="service-intro">
-            As a freelance data analyst, data scientist and Software Developer, I translate data into valuable and<br> 
-            comprehensible insights and deploy them into powerful end to end solutions that can be used by<br> 
-            business in daily tasks. My goal is to improve results, make the right decisions and save costs.
-        </p>
-
-
-        <div class="new-services">
-            <div class="data-dashboard">
-                <div class="dashboard--landscape"> <img src="Assets/Images/Dashboards.png" /> </div>
-                <p class="dashboard">Dashboards</p>
-                <p class="about-dashboard">
-                    I create powerful interactive dashboards<br> 
-                    for business to track and examine<br> 
-                    patterns.<br>
-                </p>
-                <a class="more-dashboard" href="#learmore">(learn more)</a>
-    
-            </div>
-    
-            <div class="data-fullstack">
-                <div class="fullstack--landscape"> <img src="Assets/Images/full-stack-.png" /> </div>
-                <p class="fullstack">Full Stack Developer</p>
-                <p class="about-fullstack">
-                    I deploy machine learning models in<br> 
-                    production by building APIs and<br> 
-                    connecting them to the front-end.<br>
-                </p>
-                <a class="more-fullstack" href="#learmore">(learn more)</a>
-            </div>
-    
-            <div class="all-services">
-                <div class="data-analysis">
-                    <div class="analysis--landscape"> <img src="Assets/Images/analysis.png" /> </div>
-                    <p class="analysis">Data Analysis</p>
-                    <p class="about-analysis">
-                        I am specialized in analyzing<br> 
-                        data and providing useful<br> 
-                        insights to the business.<br>
-                    </p>
-                    <a class="more-analysis" href="#learmore">(learn more)</a>
-    
-                </div>
-    
-                <div class="data-analytics">
-                    <div class="analytics--landscape"> <img src="Assets/Images/analytics.jpg" /> </div>
-                    <p class="analytics">Data Analytics</p>
-                    <p class="about-analytics">
-                        Get valuable insights from<br> 
-                        data using predictive models<br> 
-                        and machine learning.<br>
-                    </p>
-                    <a class="more-analytics" href="#learmore">(learn more)</a>
-                </div>
-            </div>
-        </div>
-      
-    
-      
-        
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
     </div>
-    <!--This is The About Me Page-->
-    <div class="about-me" id="secondary">
-        <p class="me">About Me</p>
+  </nav>
 
-        <div class="about--landscape"> <img src="Assets/Images/my-pic.jpeg" /> </div>
-
-        <p class="my-story">
-            Hi, my name is Israel and I work remotely as a freelance<br> 
-            data analyst/data scientist/Software Developer.<br><br>
-            Since I was young, I have always enjoyed to solve puzzles.<br> 
-            So that’s how I look at big data sets:<br><br> 
-            to me it is one big puzzle I want to solve.<br> 
-            Finding patterns nobody else sees is the<br> 
-            challenge to me.<br><br>
-
-            Do you want to work together? Please reach out to me by e-mail.<br>
-        </p>
-
-        <div class="get">
-            <p class="line">Wanna Take your business to the next level, leveraging the new oil(Data)?</p>
-            <button class="reach out" id="rout">Reach Out!</button>
-        </div>
-
-        
-
+  <!-- Home Section Start -->
+  <section class="home" id="home">
+    <div class="home-content">
+      <div class="text">
+        <div class="text-one">Hello,</div>
+        <div class="text-two">I'm Mugisha Israel</div>
+        <div class="text-three">Data Scientist | Data Analyst | Software Developer</div>
+        <div class="text-four">From Rwanda</div>
+      </div>
+      <div class="button">
+        <button>Hire Me</button>
+      </div>
     </div>
+  </section>
 
-    <!--This is the portfolio Page-->
-    <div class="portfolio" id="project">
-        <p class="projects">Portfolio</p>
-
-        <div class="container">
-            <img src="Assets/Images/visit-rwanda.png" alt="Avatar" class="image">
-            <div class="overlay">
-              <div class="text"><a class="rwanda" href="#vrwanda">Visit Rwanda Sentiment Analysis</a></div>
-              
-            </div>
+  <!-- About Section Start -->
+  <section class="about" id="about">
+    <div class="content">
+      <div class="title"><span>About Me</span></div>
+      <div class="about-details">
+        <div class="left">
+          <img src="my-pic.jpeg" alt="Portfolio">
         </div>
-
-        <div class="container2">
-            <img src="Assets/Images/CV.png" alt="Avatar" class="image2">
-            <div class="overlay2">
-              <div class="text2"><a class="cv" href="#cv">UI/UX</a></div>
-              
-            </div>
-        </div>
-
-        <div class="container3">
-            <img src="Assets/Images/github.png" alt="Avatar" class="image3">
-            <div class="overlay3">
-              <div class="text3"><a class="github" href="#github">Github Page</a></div>
-              
-            </div>
-        </div>
-
-        <div class="proj">
+        <div class="right">
+          <div class="topic">Problem Solving Is My Passion</div>
+          <p>Hi, my name is Israel and I work remotely as a freelance
+            data analyst/data scientist/Software Developer.
             
+            Since I was young, I have always enjoyed to solve puzzles.
+            So that’s how I look at big data sets.
+            
+            to me it is one big puzzle I want to solve.
+            Finding patterns nobody else sees is the
+            challenge to me.
+            
+            Not Only That I bridge the Gap using Software Engineering to Solve Problems that Data Can't Solve.</p>
+          <div class="button">
+            <button>Resume</button>
+          </div>
         </div>
-        
+      </div>
     </div>
-    
-    <div class="reach-me" id="contact">
-        <p class="touch">Get in Touch</p>
-        <p class="my-name">Israel</p>
-        <p class="info">
-            mugishaisrael18@gmail.com<br><br>
-            As a data expert, I know exactly how you can use data<br> 
-            optimally within your business. Based on your objectives,<br> 
-            we will make a plan to reach the right insight.
-        </p>
+  </section>
 
-        <div class="social">
-            <a href="https://twitter.com/itisWasp" target='-blank' class="fa fa-twitter"></a>
-            <a href="mailto:someone@example.com" target='-blank' class="fa fa-google"></a>
-            <a href="https://www.linkedin.com/in/mugisha-israel-98a72721a/" target='-blank' class="fa fa-linkedin"></a>
-            <a href="https://github.com/itisWasp" target='-blank' class="fa fa-github"></a>
+  <!-- My Skill Section Start -->
+  <section class="skills" id="skills">
+    <div class="content">
+      <div class="title"><span>My Skills</span></div>
+      <div class="skills-details">
+        <div class="text">
+          <div class="topic">What I add to the Table ?</div>
+          <p>As a freelance data analyst, data scientist and Software Developer, I translate data into valuable and
+            comprehensible insights and deploy them into powerful end to end solutions that can be used by
+            business in daily tasks. My goal is to improve results, make the right decisions and save costs.</p>
+          
         </div>
+        <div class="boxes">
+          <div class="box">
+            <div class="topic">Machine Learning</div>  
+          </div>
 
-        <footer>
-            <p class="cp-text">
-                © Copyright 2021 Mugisha Muhigirwa Israel. All rights reserved.
+          <div class="box">
+            <div class="topic">SQL</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">Javascript</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">Data Wrangling</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">Storytelling</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">Python</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">Classification</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">Explanatory Models</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">A/B Testing</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">Clustering</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">Recommendation</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">NLP</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">Cloud Computing</div>
+          </div>
+
+          <div class="box">
+            <div class="topic">HTML/CSS</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- My Services Section Start -->
+  <section class="services" id="services">
+    <div class="content">
+      <div class="title"><span>My Services</span></div>
+      <div class="boxes">
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="topic">Data Analysis</div>
+          <p>I am specialized in analyzing
+            data and providing useful
+            insights to the business.</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <div class="topic">BI Dashboards</div>
+          <p>I create powerful interactive dashboards for business to track and examine patterns</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="topic">Data Analytics</div>
+          <p>Get valuable insights from
+            data using predictive models
+            and machine learning.
             </p>
-        </footer>
-
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class=" fas fa-desktop"></i>
+          </div>
+          <div class="topic">Full Stack Developer</div>
+          <p>I build Web Application Both Data Driven or Normal Web Applications Using Javascript MERN Stack</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-chart-area"></i>
+          </div>
+          <div class="topic">Predictive Analysis</div>
+          <p>I help businesses make right decisions, data-driven decision.</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="topic">Machine Learning Engineering</div>
+          <p>I Build and deploy machine learning models end to end in production by using APIs, Cloud Instances, Containers, Native Mobiles.
+        </p>
+        </div>
+      </div>
     </div>
-    
-    <script src="Pages/Main-Page/index.js"></script>
-    <script src="Pages/Geolocation/geo_api.js"></script>
-    
+  </section>
+
+  <!-- Contact Me Section Start -->
+  <section class="contact" id="contact">
+    <div class="content">
+      <div class="title"><span>Contact Me</span></div>
+      <div class="text">
+        <div class="topic">Have Any Projects?</div>
+        <p>As a data expert, I know exactly how you can use data
+            optimally within your business. Based on your objectives,
+            we will make a plan to reach the right insight.
+
+            Do you want to work together? Please reach out to me by e-mail.
+        
+        </p>
+        <div class="button">
+          <button>Let's Chat</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section Start -->
+  <footer>
+    <div class="text">
+      <span>© Copyright 2021 Mugisha Muhigirwa Israel. All rights reserved.</span>
+    </div>
+  </footer>
+
+   
+
+  <script src="Pages/Main-Page/index.js"></script>
 </body>
+</html>
+
+

@@ -1,49 +1,49 @@
-scrollTo = (element) =>{
-    window.scroll({
-        behavior: "smooth",
-        left: 0,
-        top: element.offsetTop
-    });
+// Sticky Navigation Menu Js
 
-    console
-}
+let nav = document.querySelector("nav");
+let scrollBtn = document.querySelector(".scroll-button a");
 
-document.getElementById("first").addEventListener('click', () => {
-    scrollTo(document.getElementById('services'));
-});
+let val;
 
-document.getElementById("second").addEventListener('click', () => {
-    scrollTo(document.getElementById('secondary'));
-});
-
-document.getElementById('third').addEventListener('click', () => {
-    scrollTo(document.getElementById('project'));
-});
-
-document.getElementById('fourth').addEventListener('click', () => {
-    scrollTo(document.getElementById('contact'));
-});
-
-document.getElementById('rout').addEventListener('click', () => {
-    scrollTo(document.getElementById('contact'));
-});
-
-//Get the button
-var mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
+window.onscroll = function() {
+  if(document.documentElement.scrollTop > 20){
+    nav.classList.add("sticky");
+    scrollBtn.style.display = "block";
+  }else{
+    nav.classList.remove("sticky");
+    scrollBtn.style.display = "none";
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+// Side Navigation Menu Js
+let body = document.querySelector("body");
+let navBar = document.querySelector(".navbar");
+let menuBtn = document.querySelector(".menu-btn");
+let cancelBtn = document.querySelector(".cancel-btn");
+
+menuBtn.onclick = function() {
+  navBar.classList.add("active");
+  menuBtn.style.opacity = "0";
+  menuBtn.style.pointerEvents = "none";
+  body.style.overflowX = "hidden";
+  scrollBtn.style.pointerEvents = "none";
+}
+
+cancelBtn.onclick = function() {
+  navBar.classList.remove("active");
+  menuBtn.style.opacity = "1";
+  menuBtn.style.pointerEvents = "auto";
+  body.style.overflowX = "auto";
+  scrollBtn.style.pointerEvents = "auto";
+}
+
+// Side Navigation Bar Close While We click On Navigation Links
+
+let navLinks = document.querySelectorAll(".menu li a");
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener("click" , function() {
+    navBar.classList.remove("active");
+    menuBtn.style.opacity = "1";
+    menuBtn.style.pointerEvents = "auto";
+  });
 }
