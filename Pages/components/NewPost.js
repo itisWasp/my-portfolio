@@ -1,4 +1,4 @@
-let newPost = () =>{
+    let newPost = () =>{
     let board = document.getElementById("dashboard");
     post = `<!DOCTYPE html>
     <html lang="en">
@@ -82,6 +82,7 @@ let newPost = () =>{
               width: 51%;
               margin-left: 30%;
               font-family: 'Abel';
+              font-weight: bold;
             outline: 0;
             background: #24A0ED;
             
@@ -94,6 +95,12 @@ let newPost = () =>{
             transition: all 0.3 ease;
             cursor: pointer;
           }
+          btn1:hover{
+            border-color:#24A0ED;
+            background-color: #fff;
+            color:#24A0ED;
+          }
+          
       </style>
     
     
@@ -112,7 +119,7 @@ let newPost = () =>{
                 <label for="body" class="cen1">Full Article:</label><br/>
                 <textarea name="fullart" id="fullart" cols="30" rows="5" class="cen" required></textarea><br/>
                 <label for="photo" class="cen1">Upload featured image:</label><br/><br/>
-                <input type="file" id="myFile" name="filename" class="cen"><br/><br/>
+                <input type="file" id="myFile" name="filename" class="cen"><br/><br/>   
                 <input type="submit" value="POST" class="btn1">
             </form>
         </div>
