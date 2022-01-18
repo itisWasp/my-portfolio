@@ -17,8 +17,7 @@ let display = () => {
         let type = arr.type;
 
         if(type ==  `posts`){
-          var div = document.getElementById('remove');
-          div.remove();
+          
           let post = `
           <style>
           body{
@@ -230,10 +229,14 @@ let display = () => {
 
             view.innerHTML += post;
 
+            let div = document.getElementById('remove');
+          div.remove();
+
         }
       }
       
     }
 }
+
 
 
