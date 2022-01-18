@@ -39,7 +39,9 @@ nav{
   padding:20px 0;
   z-index: 999;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
+
 nav.sticky{
   background:var(--primary-color);
   padding:13px 0;
@@ -78,12 +80,14 @@ nav .navbar .menu a{
 }
 .navbar .menu a:hover{
   color:var(--primary-color);
+  font-weight: bolder;
 }
 nav.sticky .menu a{
   color:var(--white-color);
 }
 nav.sticky .menu a:hover{
-  color:var(--black-color);
+  color:var(--white-color);
+  font-weight: bolder;
 }
 .navbar .media-icons a{
   color:var(--primary-color);
