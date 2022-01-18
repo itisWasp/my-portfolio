@@ -229,12 +229,10 @@ let display = () => {
 
             view.innerHTML += post;
 
-            let div = document.getElementById('remove');
-          div.remove();
+          
 
         }
       }
-      
     }
 }
 
