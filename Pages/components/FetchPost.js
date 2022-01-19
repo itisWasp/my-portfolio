@@ -8,7 +8,7 @@ let display = () => {
         continue;
       }
       else{
-        console.log(key);
+        // console.log(key);
         let view = document.getElementById('output');
         let arr = JSON.parse(localStorage.getItem(key));
         let title = arr.titleInfo;
@@ -218,7 +218,7 @@ let display = () => {
           
           </style>
 
-          <div class="card">
+          <div class="card" id = '${key}' onclick="viewPost('${key}');" style="cursor: pointer;">
             <h2>${title}</h2>
             <h5>Title description, Dec 7, 2017</h5>
             <div class="fakeimg" style="height:200px;"> <img src="${image}" alt="featured image" class="img5"> </div>
@@ -232,8 +232,40 @@ let display = () => {
           
 
         }
+        
       }
     }
+}
+
+let viewPost = (postId) =>{
+  // console.log(postId);
+  let posts = localStorage.getItem(postId);
+  // let reParsing = JSON.parse(posts);
+  console.log(posts);
+  localStorage.setItem('currentPost', posts);
+  window.location.href= '../Blog-Page/story.html';
+
+  // let posts = JSON.parse(JSON.stringify(localStorage.getItem(postId)));
+  // let reParsing = JSON.parse(posts);
+  // console.log(reParsing);
+  // localStorage.setItem('SelectedPost', reParsing);
+
+  // let clickableDiv = document.getElementById(postId);
+  // clickableDiv.addEventListener('click', () => {
+  //   //get key in the local storage
+  //   for(let j=0; j<localStorage.length; j++){
+  //     let newKey = localStorage.key(j);
+  //     if(newKey === 'email' || newKey === 'password'){
+  //       continue;
+  //     }
+  //     else{
+  //       // console.log(newKey);
+  //       let arr = JSON.parse(localStorage.getItem(newKey));
+  //       let title = arr
+  //     }
+  //   }
+    
+  // });
 }
 
 
