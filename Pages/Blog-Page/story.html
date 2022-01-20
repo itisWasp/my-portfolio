@@ -16,22 +16,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
     <script src="../components/header.js"></script>
     <script src="../components/footer.js"></script>
+    <script src="../components/ViewFullPost.js"></script>
     </head>
 
-<body>
+<body onload="ViewPost()">
   <the-beginning></the-beginning>
       
       <div class="row">
-        <div class="leftcolumn">
-          <div class="card">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Dec 7, 2017</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
-            <img src="https://img.icons8.com/external-kmg-design-outline-color-kmg-design/32/000000/external-like-feedback-kmg-design-outline-color-kmg-design.png"/>
-            <p>1000 Likes</p>
-            <!--<a href="./story.html" style="text-decoration: none;">Read Full Story</a>-->
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-          </div>
+        <div class="leftcolumn" id="output">
           
         </div>
         <div class="rightcolumn">
