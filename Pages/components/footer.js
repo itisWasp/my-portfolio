@@ -62,7 +62,7 @@ class Footer extends HTMLElement{
         body {
           font-family: 'Roboto';
           padding: 20px;
-          background: #DDDDDD;
+          background: #FFFFFF;
         }
         
         /* Header/Blog Title */
@@ -89,17 +89,17 @@ class Footer extends HTMLElement{
         
         /* Fake image */
         .fakeimg {
-          background-color: #aaa;
+          background-color: #dde9f0;
           width: 100%;
           padding: 20px;
         }
         
         /* Add a card effect for articles */
         .card {
-           background-color: #264653;
+           background-color: #f0f8ff;
            padding: 20px;
            margin-top: 20px;
-           color: #ffffff;
+           color: black;
         }
         
         /* Clear floats after the columns */
@@ -132,7 +132,7 @@ class Footer extends HTMLElement{
       .form input {
         outline: 0;
         background: #ddd;
-        width: 140%;
+        width: 100%;
         border: 0;
         border-radius: 50px;
         margin: 0 -40px 20px;
@@ -150,7 +150,7 @@ class Footer extends HTMLElement{
         font-family: 'Abel';
         outline: 0;
         background: #24A0ED;
-        width: 100%;
+        width: 70%;
         border: 0;
         border-radius: 50px;
         padding: 10px;

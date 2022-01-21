@@ -77,7 +77,7 @@ class Header extends HTMLElement {
           body {      
             font-family: 'Roboto';
             padding: 20px;
-            background: #DDDDDD;
+            background: #ffffff;
           }
           
           /* Header/Blog Title */
@@ -85,7 +85,7 @@ class Header extends HTMLElement {
             padding: 30px;
             font-size: 40px;
             text-align: center;
-            background: #264653;
+            background: #f0f8ff;
           }
           
           /* Create two unequal columns that floats next to each other */
@@ -111,10 +111,10 @@ class Header extends HTMLElement {
           
           /* Add a card effect for articles */
           .card {
-             background-color: #264653;
+             background-color: #f0f8ff;
              padding: 20px;
              margin-top: 20px;
-             color: #ffffff;
+             color: #0E2431;
           }
           
           /* Clear floats after the columns */
@@ -147,7 +147,7 @@ class Header extends HTMLElement {
         .form input {
           outline: 0;
           background: #ddd;
-          width: 140%;
+          width: 100%;
           border: 0;
           border-radius: 50px;
           margin: 0 -40px 20px;
@@ -165,7 +165,7 @@ class Header extends HTMLElement {
           font-family: 'Abel';
           outline: 0;
           background: #24A0ED;
-          width: 100%;
+          width: 70%;
           border: 0;
           border-radius: 50px;
           padding: 10px;
@@ -192,6 +192,8 @@ class Header extends HTMLElement {
               padding: 0;
             }
           }
+        
+        
                 
       
         </style>
@@ -201,8 +203,8 @@ class Header extends HTMLElement {
         <button class="button button2" onClick = handleLogout() >Sign out</button><!--onclick="window.location.href='index.html';"-->
     </div>
 
-    <div class="header">
-        <h2 style="color:#ffffff;">My Space</h2>
+    <div class="header" style="background-color: #f0f8ff;">
+        <h2 style="color:#0E2431;">My Space</h2>
       </div>
         `;
     }

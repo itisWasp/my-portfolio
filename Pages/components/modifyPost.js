@@ -38,7 +38,7 @@ let modifyPost = () => {
           .articlebox{
               width: 100%;
               height: 80vh;
-              background-color: #ddd; 
+              background-color: #dde9f0; 
               margin: auto;
               overflow-y: scroll;
               overflow-x: hidden;

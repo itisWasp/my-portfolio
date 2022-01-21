@@ -91,7 +91,7 @@ let display = () => {
             body {      
               font-family: 'Roboto';
               padding: 20px;
-              background: #DDDDDD;
+              background: #ffffff;
             }
             
             /* Header/Blog Title */
@@ -99,7 +99,7 @@ let display = () => {
               padding: 30px;
               font-size: 40px;
               text-align: center;
-              background: #264653;
+              background: #f0f8ff;
             }
             
             /* Create two unequal columns that floats next to each other */
@@ -118,17 +118,17 @@ let display = () => {
             
             /* Fake image */
             .fakeimg {
-              background-color: #aaa;
+              background-color: #dde9f0;
               width: 100%;
               padding: 20px;
             }
             
             /* Add a card effect for articles */
             .card {
-               background-color: #264653;
-               padding: 20px;
-               margin-top: 20px;
-               color: #ffffff;
+              background-color: #f0f8ff;
+              padding: 20px;
+              margin-top: 20px;
+              color: #0E2431;
             }
             
             /* Clear floats after the columns */
@@ -161,7 +161,7 @@ let display = () => {
           .form input {
             outline: 0;
             background: #ddd;
-            width: 140%;
+            width: 100%;
             border: 0;
             border-radius: 50px;
             margin: 0 -40px 20px;
@@ -179,7 +179,7 @@ let display = () => {
             font-family: 'Abel';
             outline: 0;
             background: #24A0ED;
-            width: 100%;
+            width: 70%;
             border: 0;
             border-radius: 50px;
             padding: 10px;
@@ -218,7 +218,7 @@ let display = () => {
           
           </style>
 
-          <div class="card" id = '${key}' onclick="viewPost('${key}');" style="cursor: pointer;">
+          <div class="card" id = '${key}' onclick="viewPost('${key}');" style="cursor: pointer; background-color: #f0f8ff; color: #264653;">
             <h2>${title}</h2>
             <h5>Title description, Dec 7, 2017</h5>
             <div class="fakeimg" style="height:200px;"> <img src="${image}" alt="featured image" class="img5"> </div>
