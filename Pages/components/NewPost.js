@@ -38,7 +38,7 @@
           .articlebox{
               width: 80%;
               height: 70vh;
-              background-color: #ddd;
+              background-color: #dde9f0;
               margin: auto;
           }
           .newArticle{
@@ -326,7 +326,7 @@ font-family: 'Abel';
                 fullArticleInfo: postBody,
                 imgUrlInfo: postImageLink,
                 type:`posts`,
-                likes:0,
+                likes:0
             }
         
             localStorage.setItem(key, JSON.stringify(blogPosts));        

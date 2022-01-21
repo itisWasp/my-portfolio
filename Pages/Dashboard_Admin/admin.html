@@ -30,6 +30,7 @@
     <script src="../components/footer.js"></script>
     <script src="../components/NewPost.js"></script>
     <script src="../components/modifyPost.js"></script>
+    <script src="../components/getGeoLocation.js"></script>
     <script src="Logout.js"></script> 
     
  
@@ -43,15 +44,15 @@
 
     </head>
 
-<body>
+<body style="background-color: #FFFFFF">
   <the-beginning></the-beginning>
       
       <div class="row">
         <div class="leftcolumn">
-          <div class="card"  id="dashboard">
+          <div class="card"  id="dashboard" style="background-color: #f0f8ff;">
             <div class="circular--landscape"> <img src="../Assets/Images/my-pic.jpeg" /> </div>
         <div class="circular--portrait"> <img src="Assets/Images/my-pic.jpeg"/> </div>
-        <div class="about-me">
+        <div class="about-me" style="color: black">
             <p class="name">Mugisha Muhigirwa Israel</p>
             <p class="career">Data Scientist | Data Analyst | Software Developer</p>
             <p class="quote">“I want to help businesses make right decisions, data-driven decision.”</p>
@@ -61,13 +62,13 @@
         </div>
         <div class="rightcolumn">
           
-          <div class="card">
-              <p>Welcome, Admin :-)</p>
+          <div class="card" style="background-color: #f0f8ff;">
+              <p style="color: black">Welcome, Admin :-)</p>
             <table>
                 <tr><td onclick="newPost()">New Post</td></tr>
                 <tr><td onclick="modifyPost()">Modify Post</td></tr>
-                <tr><td>Users</td></tr>
-                <tr><td>Users Location</td></tr>
+                <tr><td >Users</td></tr>
+                <tr><td onclick="getGeoLocation()">Users Location</td></tr>
                 </table>
           </div>
         </div>

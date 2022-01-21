@@ -14,6 +14,7 @@ let ViewPost = () =>{
             let body = arr.fullArticleInfo;
             let image = arr.imgUrlInfo;
             let type = arr.type;
+            let newLike = arr.likes;
             
             if(type == `posts`){
                 //
@@ -161,7 +162,7 @@ let ViewPost = () =>{
                     .form input {
                         outline: 0;
                         background: #ddd;
-                        width: 140%;
+                        width: 40%;
                         border: 0;
                         border-radius: 50px;
                         margin: 0 -40px 20px;
@@ -206,6 +207,9 @@ let ViewPost = () =>{
                 border-radius: 12px;
 
                     }
+                    .fab{
+                        height:100%;
+                    }
                         
                         /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
                         @media screen and (max-width: 800px) {
@@ -233,6 +237,9 @@ let ViewPost = () =>{
                         <link rel="preconnect" href="https://fonts.googleapis.com">
                         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                         <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+
+                        <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
                         <script src="../components/header.js"></script>
                         <script src="../components/footer.js"></script>
                         </head>
@@ -241,7 +248,7 @@ let ViewPost = () =>{
                         <h2>${title}</h2>
                         <h5>Title description, Dec 7, 2017</h5>
                         <div class="fakeimg" style="height:200px;"> <img src="${image}" alt="featured image" class="img5"> </div>
-                        <a href="./story.html" style="text-decoration: none; color: #24A0ED;">Read Full Story</a>
+                        <i class="fab fa-gratipay"style="font-size:48px; cursor: pointer;" id='${key}' onclick="like('${key}')"></i> ${newLike}
                         <p>${body}</p>
                         </div>
                     
@@ -251,4 +258,37 @@ let ViewPost = () =>{
         }
     }
 
+}
+
+let like = (postId) => {
+    let test = document.getElementById(postId);
+    // test.addEventListener('click', (e) => {
+    //     if(e.detail === 1){
+            // console.log('Single Click');
+            // console.log(postId);
+            let item = JSON.parse(localStorage.getItem(postId));
+            // console.log(item);
+            let likeAdd = item.likes + 1;
+            console.log(likeAdd);
+
+            let arr = JSON.parse(localStorage.getItem('currentPost'));
+            let title = arr.titleInfo;
+            let body = arr.fullArticleInfo;
+            let image = arr.imgUrlInfo;
+            let type = arr.type;
+
+            let blogPosts = {
+                titleInfo: title,
+                fullArticleInfo: body,
+                imgUrlInfo: image,
+                type:`${type}`,
+                likes: likeAdd
+            }
+            localStorage.setItem(postId, JSON.stringify(blogPosts));
+    //     }
+    //     else{
+    //         console.log('Double Click');
+    //     }
+    // });
+    
 }
