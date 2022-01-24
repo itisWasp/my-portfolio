@@ -1,4 +1,4 @@
-let display = () => {
+let ViewComment = () => {
     let output = document.getElementById('output');
 
     for(i=0; i<localStorage.length; i++) {
@@ -7,17 +7,18 @@ let display = () => {
       if(key === 'email' || key === 'password') {
         continue;
       }
-      else{
+      else {
         // console.log(key);
         let view = document.getElementById('output');
         let arr = JSON.parse(localStorage.getItem(key));
-        let title = arr.titleInfo;
-        let body = arr.fullArticleInfo;
-        let image = arr.imgUrlInfo;
+        let arr2 = JSON.parse(localStorage.getItem('currentLoggedIn'));
+        let title = arr2.storedUserName;
+        let body = arr.comment;
         let time = arr.timeStamp;
         let type = arr.type;
+        console.log(arr2);
 
-        if(type ==  `posts`){
+        if(type ==  `comment`){
           
           let post = `
           <style>
@@ -222,8 +223,6 @@ let display = () => {
           <div class="card" id = '${key}' onclick="viewPost('${key}');" style="cursor: pointer; background-color: #f0f8ff; color: #264653;">
             <h2>${title}</h2>
             <h5>${time}</h5>
-            <div class="fakeimg" style="height:200px;"> <img src="${image}" alt="featured image" class="img5"> </div>
-            <a href="./story.html" style="text-decoration: none; color: #24A0ED;">Read Full Story</a>
             <p>${body}</p>
           </div>
           `
@@ -238,36 +237,33 @@ let display = () => {
     }
 }
 
-let viewPost = (postId) =>{
-  // console.log(postId);
-  let posts = localStorage.getItem(postId);
-  // let reParsing = JSON.parse(posts);
-  console.log(posts);
-  localStorage.setItem('currentPost', posts);
-  window.location.href= '../Blog-Page/story.html';
-
-  // let posts = JSON.parse(JSON.stringify(localStorage.getItem(postId)));
-  // let reParsing = JSON.parse(posts);
-  // console.log(reParsing);
-  // localStorage.setItem('SelectedPost', reParsing);
-
-  // let clickableDiv = document.getElementById(postId);
-  // clickableDiv.addEventListener('click', () => {
-  //   //get key in the local storage
-  //   for(let j=0; j<localStorage.length; j++){
-  //     let newKey = localStorage.key(j);
-  //     if(newKey === 'email' || newKey === 'password'){
-  //       continue;
-  //     }
-  //     else{
-  //       // console.log(newKey);
-  //       let arr = JSON.parse(localStorage.getItem(newKey));
-  //       let title = arr
-  //     }
-  //   }
-    
-  // });
-}
-
-
-
+// let viewPost = (postId) =>{
+//     // console.log(postId);
+//     let posts = localStorage.getItem(postId);
+//     // let reParsing = JSON.parse(posts);
+//     console.log(posts);
+//     localStorage.setItem('currentPost', posts);
+//     window.location.href= '../Blog-Page/story.html';
+  
+//     // let posts = JSON.parse(JSON.stringify(localStorage.getItem(postId)));
+//     // let reParsing = JSON.parse(posts);
+//     // console.log(reParsing);
+//     // localStorage.setItem('SelectedPost', reParsing);
+  
+//     // let clickableDiv = document.getElementById(postId);
+//     // clickableDiv.addEventListener('click', () => {
+//     //   //get key in the local storage
+//     //   for(let j=0; j<localStorage.length; j++){
+//     //     let newKey = localStorage.key(j);
+//     //     if(newKey === 'email' || newKey === 'password'){
+//     //       continue;
+//     //     }
+//     //     else{
+//     //       // console.log(newKey);
+//     //       let arr = JSON.parse(localStorage.getItem(newKey));
+//     //       let title = arr
+//     //     }
+//     //   }
+      
+//     // });
+//   }

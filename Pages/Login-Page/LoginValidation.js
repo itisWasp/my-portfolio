@@ -110,11 +110,40 @@ form.addEventListener('submit', function (e) {
                 window.location.href ='../Dashboard_Admin/admin.html'
             }
 
+
             else{
                 setError(email, '');
                 setError(password,'');
                 message.innerHTML = 'Username or Password Is Invalid';
             }
+            for(let i=0;i<localStorage.length;i++){
+                keyy = localStorage.key(i)
+                let arr = JSON.parse(localStorage.getItem(keyy))
+                 storedUserEmail= arr.email;
+                 storedUserPassword = arr.password;
+                 storedUserId = arr.userId;
+                 storedUserName = arr.userName;
+
+                 if(email.value == storedUserEmail && password.value == storedUserPassword){
+
+                    currrentlyLogged = {
+                  
+                      storedUserEmail:storedUserEmail,
+                      storedUserPassword: storedUserPassword,
+                      storedUserId: storedUserId,
+                      storedUserName: storedUserName
+                     }
+                     localStorage.setItem("currentLoggedIn",JSON.stringify(currrentlyLogged))
+                    location = "../Blog-Page/story.html"; 
+                  }
+                else{
+                    setError(email, '');
+                setError(password,'');
+                message.innerHTML = 'Username or Password Is Invalid';
+                }
+            }
+
+                 
         }
 
         else{

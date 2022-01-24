@@ -70,3 +70,139 @@ const validateInputs = () => {
     }
 
 };
+
+//check validation before submitting.
+
+const checkUsername = () => {
+    let valid = false;
+    const userNameValue = username.value.trim();
+    if(userNameValue === '') {
+        setError(username, 'UserName is required');
+    } else if (userNameValue.length <5) {
+        setError(username, 'UserName must be at least 5 characters');
+    } else {
+        setSuccess(username);
+        valid = true;
+    }
+    return valid;
+}
+
+const checkEmail = () => {
+    let valid = false;
+    const emailValue = email.value.trim();
+    if(emailValue === '') {
+        setError(email, 'Email is required');
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, 'Provide a valid email address');
+    } else {
+        setSuccess(email);
+        valid = true;
+    }
+    return valid;
+}
+
+
+const checkPassword = () => {
+    let valid = false;
+    const passwordValue = password.value.trim();
+    const passwordValue2 = password2.value.trim();
+    if(passwordValue === '' || passwordValue2 === '') {
+        setError(password, 'Password is required');
+        setError(password2, 'Password is required');
+    } else if (passwordValue.length < 8  || passwordValue2.length < 8) {
+        setError(password, 'Password must be at least 8 character.');
+        setError(password, 'Password must be at least 8 character.')
+    }else if (passwordValue2 !== passwordValue) {
+        setError(password2, "Passwords doesn't match");
+    }
+     else {
+        setSuccess(password);
+        valid = true;
+    }
+    return valid;
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // validate forms
+    let 
+    isUsernameValid = checkUsername(),
+    isEmailValid = checkEmail(),
+    isPasswordValid = checkPassword();
+
+    let isFormValid = isEmailValid&&isPasswordValid&&isUsernameValid;
+
+    if(isFormValid){
+        if(window.localStorage){
+
+            // let username = document.getElementById('username').value,
+            // email = document.getElementById('email').value,
+            // password = document.getElementById('password').value,
+            // password2 = document.getElementById('confirmPassword').value;
+
+             // first part of the key
+
+          let keySectionOne = Math.floor(Math.random() * (9000000-100000)+100000);
+          // second part of the key
+          let alpha = ["a","b","c","d"];
+          let as = Math.floor(Math.random()*(3-0)+0)
+          let keySectionTwo = alpha[as]
+          // third part of the key
+
+          let keySectionThree = Math.floor(Math.random() * (90-10)+10);
+          //final key
+
+          let key = `${keySectionOne}${keySectionTwo}${keySectionThree}`;
+
+
+            const usernameValue = username.value;
+            const emailValue = email.value.trim();
+            const passwordValue = password.value.trim();
+            const password2Value = password2.value.trim();
+            const userId = key
+            
+            let formData = JSON.parse(localStorage.getItem('formData')) || [];
+            let exist = formData.length &&
+                JSON.parse(localStorage.getItem('formData')).some(data =>
+                    data.username == usernameValue &&
+                    data.email == emailValue
+                );
+            if(!exist){
+                 // first part of the key
+
+                let keySectionOne = Math.floor(Math.random() * (9000000-100000)+100000);
+                // second part of the key
+                let alpha = ["a","b","c","d"];
+                let as = Math.floor(Math.random()*(3-0)+0)
+                let keySectionTwo = alpha[as]
+                // third part of the key
+
+                let keySectionThree = Math.floor(Math.random() * (90-10)+10);
+                //final key
+
+                let key = `${keySectionOne}${keySectionTwo}${keySectionThree}`;
+
+                Users = {
+                    userName : usernameValue,
+                    email : emailValue,
+                    password : password2Value,
+                    userId: key
+                }
+
+                localStorage.setItem(key, JSON.stringify(Users));
+
+
+                alert("Account Created.\n\nYou can now Login In to your account");
+                location.href='login.html'
+            }
+            else{
+                alert("Ooopppssss... Duplicate found!!!\nYou have already signed up");
+            }
+            // e.preventDefault();
+            }
+        else{
+            console.log('Not supported');
+        }
+    }
+})

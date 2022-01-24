@@ -17,9 +17,11 @@
     <script src="../components/header.js"></script>
     <script src="../components/footer.js"></script>
     <script src="../components/ViewFullPost.js"></script>
+    <script src="../components/postComment.js"></script>
+    <script src="../components/FetchComment.js"></script>
     </head>
 
-<body onload="ViewPost()">
+<body onload="ViewPost(); ViewComment()">
   <the-beginning></the-beginning>
       
       <div class="row">
@@ -32,8 +34,10 @@
             <h3>Follow Me</h3>
             <form>
               <div class="form">
-                <input type="text" placeholder="Comment Your Thoughts....." />
-                <button>Post Your Comment</button>
+                <input type="text" placeholder="Comment Your Thoughts....."  id="comment"/>
+                <table>
+                  <tr><td onclick="newComment()">New Post</td></tr>
+                  </table>
               </div>
               
             </form>
