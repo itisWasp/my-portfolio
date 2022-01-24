@@ -135,6 +135,16 @@ width: 100%;
   font-family: 'Abel';
 }
 
+.message {
+  color: #ff3860;
+  font-size: 12px;
+  height: 13px;
+  text-align: center;
+  font-size: 15px;
+  padding-top: 10px;
+  font-family: 'Abel';
+}
+
 
 @media screen and (max-width: 500px) {
   .login{

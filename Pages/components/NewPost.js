@@ -320,11 +320,13 @@ font-family: 'Abel';
             let postTitle = title.value.trim();
             let postBody = fullArticle.value.trim();
             let postImageLink = imageLink.value.trim();
+            let time = new Date().toLocaleString();
         
             let blogPosts = {
                 titleInfo: postTitle,
                 fullArticleInfo: postBody,
                 imgUrlInfo: postImageLink,
+                timeStamp: time,
                 type:`posts`,
                 likes:0
             }

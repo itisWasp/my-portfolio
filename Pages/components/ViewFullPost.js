@@ -14,6 +14,7 @@ let ViewPost = () =>{
             let body = arr.fullArticleInfo;
             let image = arr.imgUrlInfo;
             let type = arr.type;
+            let time = arr.timeStamp    ;
             let newLike = arr.likes;
             
             if(type == `posts`){
@@ -246,7 +247,7 @@ let ViewPost = () =>{
                         
                         <div class="card">
                         <h2>${title}</h2>
-                        <h5>Title description, Dec 7, 2017</h5>
+                        <h5>${time}</h5>
                         <div class="fakeimg" style="height:200px;"> <img src="${image}" alt="featured image" class="img5"> </div>
                         <i class="fab fa-gratipay"style="font-size:48px; cursor: pointer;" id='${key}' onclick="like('${key}')"></i> ${newLike}
                         <p>${body}</p>
@@ -259,6 +260,67 @@ let ViewPost = () =>{
     }
 
 }
+
+
+// let newComment = (postId) => {
+//     let test = document.getElementById(postId);
+
+//     console.log(postId);
+
+//     let commentSection = document.getElementById('comment');
+//     let commentValue = commentSection.value.trim();
+//       if (commentValue === '') {
+//           alert('Comment Can\'t be empty');
+//       }
+//       else{
+//         let time = new Date().toLocaleString();
+//         let commentValue = commentSection.value.trim();
+//         let type = `comment`;
+
+//         let formData = JSON.parse(localStorage.getItem(postId)) || [];
+
+//         console.log(formData);
+
+//         // formData.push({ commentValue, time, type});
+//         localStorage.setItem(postId, JSON.stringify(formData));
+    
+//         // localStorage.setItem(postId, JSON.stringify(commentPosts));  
+//         alert('Post Created Successfully');
+
+
+    // test.addEventListener('click', (e) => {
+    //     if(e.detail === 1){
+            // console.log('Single Click');
+            // console.log(postId);
+            // let item = JSON.parse(localStorage.getItem(postId));
+            // // console.log(item);
+            // let likeAdd = item.likes + 1;
+            // console.log(likeAdd);
+
+            // let arr = JSON.parse(localStorage.getItem('currentPost'));
+            // let title = arr.titleInfo;
+            // let body = arr.fullArticleInfo;
+            // let image = arr.imgUrlInfo;
+            // let type = arr.type;
+            // let comments = arr.comments;
+
+            // let blogPosts = {
+            //     titleInfo: title,
+            //     fullArticleInfo: body,
+            //     imgUrlInfo: image,
+            //     type:`${type}`,
+            //     comments: comments,
+            //     likes: likeAdd
+            // }
+            // localStorage.setItem(postId, JSON.stringify(blogPosts));
+    //     }
+    //     else{
+    //         console.log('Double Click');
+    //     }
+    // });
+    
+// }
+
 
 let like = (postId) => {
     let test = document.getElementById(postId);
@@ -276,12 +338,14 @@ let like = (postId) => {
             let body = arr.fullArticleInfo;
             let image = arr.imgUrlInfo;
             let type = arr.type;
+            let comments = arr.comments;
 
             let blogPosts = {
                 titleInfo: title,
                 fullArticleInfo: body,
                 imgUrlInfo: image,
                 type:`${type}`,
+                comments: comments,
                 likes: likeAdd
             }
             localStorage.setItem(postId, JSON.stringify(blogPosts));
