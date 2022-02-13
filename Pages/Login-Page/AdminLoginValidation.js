@@ -1,8 +1,6 @@
-const form = document.getElementById("signup");
-const username = document.getElementById("username");
+const form = document.getElementById("login");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const password2 = document.getElementById("confirmPassword");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -35,16 +33,8 @@ const isValidEmail = (email) => {
 };
 
 const validateInputs = () => {
-  const usernameValue = username.value.trim();
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
-  const password2Value = password2.value.trim();
-
-  if (usernameValue === "") {
-    setError(username, "Username is required");
-  } else {
-    setSuccess(username);
-  }
 
   if (emailValue === "") {
     setError(email, "Email is required");
@@ -61,31 +51,9 @@ const validateInputs = () => {
   } else {
     setSuccess(password);
   }
-
-  if (password2Value === "") {
-    setError(password2, "Please confirm your password");
-  } else if (password2Value !== passwordValue) {
-    setError(password2, "Passwords doesn't match");
-  } else {
-    setSuccess(password2);
-  }
 };
 
-//check validation before submitting.
-
-const checkUsername = () => {
-  let valid = false;
-  const userNameValue = username.value.trim();
-  if (userNameValue === "") {
-    setError(username, "UserName is required");
-  } else if (userNameValue.length < 5) {
-    setError(username, "UserName must be at least 5 characters");
-  } else {
-    setSuccess(username);
-    valid = true;
-  }
-  return valid;
-};
+//Checking Validation Before Logging In the Browser.
 
 const checkEmail = () => {
   let valid = false;
@@ -104,15 +72,10 @@ const checkEmail = () => {
 const checkPassword = () => {
   let valid = false;
   const passwordValue = password.value.trim();
-  const passwordValue2 = password2.value.trim();
-  if (passwordValue === "" || passwordValue2 === "") {
+  if (passwordValue === "") {
     setError(password, "Password is required");
-    setError(password2, "Password is required");
-  } else if (passwordValue.length < 8 || passwordValue2.length < 8) {
+  } else if (passwordValue.length < 8) {
     setError(password, "Password must be at least 8 character.");
-    setError(password, "Password must be at least 8 character.");
-  } else if (passwordValue2 !== passwordValue) {
-    setError(password2, "Passwords doesn't match");
   } else {
     setSuccess(password);
     valid = true;
@@ -120,46 +83,56 @@ const checkPassword = () => {
   return valid;
 };
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", function (e) {
+  // prevent the form from submitting
   e.preventDefault();
 
   // validate forms
-  let isUsernameValid = checkUsername(),
-    isEmailValid = checkEmail(),
+  let isEmailValid = checkEmail(),
     isPasswordValid = checkPassword();
 
-  let isFormValid = isEmailValid && isPasswordValid && isUsernameValid;
+  let isFormValid = isEmailValid && isPasswordValid;
 
+  // submit to the server if the form is valid
   if (isFormValid) {
-    const username = document.getElementById("username");
     const email = document.getElementById("email");
-    const password2 = document.getElementById("confirmPassword");
+    const password = document.getElementById("password");
+    let message = document.querySelector('.message');
 
     const UserValues = {
       method: "POST",
-      headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify({
-        UserName: username.value,
         Email: email.value,
-        Password: password2.value,
+        Password: password.value,
       }),
     };
 
-    fetch(
-      "https://my-portfolio-back-end.herokuapp.com/api/register",
-      UserValues
-    )
-      .then(response => response.json())
+    fetch("https://my-portfolio-back-end.herokuapp.com/api/admin", UserValues)
+      .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        if (data.message == 'Email already Exists') {
-          alert(data.message)
+        if (data.message === "Invalid Admin Password Plz Try Again!" || data.message === "Invalid Admin Email Plz Try Again!"){
+            setError(email, '');
+            setError(password,'');
+            message.innerHTML = 'Email or Password Is Invalid';   
         }
-        else alert('Registered Successfully Login') ;
-      });
-      console.log('Request Sent');
+        else {
+            alert("Admin Successfully Logged In");
+        }
 
-      
 
+        token = data.accessToken;
+        localStorage.setItem('Adminuser', token);
+
+        location = "../Dashboard_Admin/admin.html";
+
+
+      })
+    console.log("Request Sent");
+    
   }
 });
