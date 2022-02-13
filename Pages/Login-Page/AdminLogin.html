@@ -2,7 +2,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="AdminLogin.css">
     <title>Login Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,37 +18,27 @@
         <div class="form">
             <p class="header">Welcome to My Space, :-)</p>
             <img src="https://img.icons8.com/external-itim2101-flat-itim2101/64/000000/external-blog-copywriting-itim2101-flat-itim2101.png"/>
-            <form id="signup">
-            
-            <div class="form-field">
-            <input type="text" placeholder="Username" id="username"/>
-            <div class="error"></div>
-            </div>
+            <form id="login">
 
             <div class="form-field">
             <input type="text" placeholder="Email" id="email"/>
             <div class="error"></div>
             </div>
 
+
             <div class="form-field">
-            <input type="password" placeholder="Password" id="password" />
+            <input type="password" placeholder="Password" id="password"/>
             <div class="error"></div>
             </div>
 
-            <div class="form-field">
-            <input type="password" placeholder="Repeat Password" id="confirmPassword" />
-            <div class="error"></div>
-            </div>
-            
-            <button onclick="registerUser()">SignUp</button>
-            
-            <p class="account">Forgot Your, <a class="active" href="#home">Password</a></p>
-            <p class="account2">Have an Account Click, <a class="active2" href="login.html">here</a></p>
+            <button>Login</button>
+            <div class="message"></div>
+
+            <p class="account">Not An Admin Login, <a class="active" href="login.html">Here</a></p>
             </form>
         </div>
     </div>
-    <script src="SignupValidation.js"></script>
-    <script src="../../api/Register.js"></script>
+    <script src="AdminLoginValidation.js"></script>
 </body>
 
 </html>
