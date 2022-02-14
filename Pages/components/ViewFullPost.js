@@ -330,14 +330,15 @@ let like = (postId) => {
         `https://my-portfolio-back-end.herokuapp.com/api/like/${postId}`,
         CommentValues
       ).then((response) => {
-          console.log(response.msg)
-        if(response.status == 400){
-            alert('Already Liked The Post');
-        }
-        else {
-            alert('Please Login before liking');
-        }
-      });
+          return response.json()
+      }).then(data => {
+          if(data.msg === 'Invalid Token'){
+              alert('PLease Login Before Liking');
+          }
+          if(data.msg === 'Post Already Liked') {
+              alert('Post Already Liked');
+          }
+      })
 
 
     
