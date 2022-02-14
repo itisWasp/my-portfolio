@@ -115,19 +115,17 @@ form.addEventListener("submit", function (e) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        if (data.message === "Invalid Password Plz Try Again!" || data.message === "Invalid Email Plz Try Again!"){
+        if (data.message === "Invalid Password Plz Try Again!" || data.message === "Invalid Email Plz Try Again!" || data.status == 400){
             setError(email, '');
             setError(password,'');
             message.innerHTML = 'Email or Password Is Invalid';
         }
         else {
+            token = data.accessToken;
+            localStorage.setItem('user', token);
+            location = "../Blog-Page/blog.html";
             alert("Successfully Logged In");
         }
-
-
-        token = data.accessToken;
-        localStorage.setItem('user', token);
-        location = "../Blog-Page/blog.html";
 
       })
     console.log("Request Sent");

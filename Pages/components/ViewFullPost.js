@@ -1,23 +1,19 @@
 let ViewPost = () =>{
     let output = document.getElementById('output');
 
-    //
-    for(let i =0; i<localStorage.length; i++){
-        let key = localStorage.key(i);
-
-        if(key === 'email' || key === 'password'){
-            continue;
-        }
-        else{
-            let arr = JSON.parse(localStorage.getItem('currentPost'));
-            let title = arr.titleInfo;
-            let body = arr.fullArticleInfo;
-            let image = arr.imgUrlInfo;
-            let type = arr.type;
-            let time = arr.timeStamp    ;
-            let newLike = arr.likes;
-            
-            if(type == `posts`){
+    const postValues = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      };
+      const postId = JSON.parse(localStorage.getItem('currentPost'))
+      fetch(`https://my-portfolio-back-end.herokuapp.com/api/Getblog/${postId}`, postValues)
+        .then((response) =>{
+          return response.json();
+        }).then(post => {
+            console.log('The current Post ------->>>>>>>>', post);
                 //
                 let singlePost = `
     
@@ -246,20 +242,17 @@ let ViewPost = () =>{
                         </head>
                         
                         <div class="card">
-                        <h2>${title}</h2>
-                        <h5>${time}</h5>
-                        <div class="fakeimg" style="height:200px;"> <img src="${image}" alt="featured image" class="img5"> </div>
-                        <i class="fab fa-gratipay"style="font-size:48px; cursor: pointer;" id='${key}' onclick="like('${key}')"></i> ${newLike}
-                        <p>${body}</p>
+                        <h2>${post.title}</h2>
+                        <h5>${post.date}</h5>
+                        <div class="fakeimg" style="height:200px;"> <img src="${post.imgLink}" alt="featured image" class="img5"> </div>
+                        <i class="fab fa-gratipay"style="font-size:48px; cursor: pointer;" id='${post._id}' onclick="like('${post._id}')"></i> ${post.likes.length}
+                        <p>${post.body}</p>
                         </div>
                     
                     </html>`
                     output.innerHTML = singlePost;
-            }
+                })
         }
-    }
-
-}
 
 
 // let newComment = (postId) => {
@@ -323,36 +316,29 @@ let ViewPost = () =>{
 
 
 let like = (postId) => {
-    let test = document.getElementById(postId);
-    // test.addEventListener('click', (e) => {
-    //     if(e.detail === 1){
-            // console.log('Single Click');
-            // console.log(postId);
-            let item = JSON.parse(localStorage.getItem(postId));
-            // console.log(item);
-            let likeAdd = item.likes + 1;
-            console.log(likeAdd);
+    
+    const CommentValues = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          'auth-token' : localStorage.getItem('user')
+        },
+      };
 
-            let arr = JSON.parse(localStorage.getItem('currentPost'));
-            let title = arr.titleInfo;
-            let body = arr.fullArticleInfo;
-            let image = arr.imgUrlInfo;
-            let type = arr.type;
-            let comments = arr.comments;
+      fetch(
+        `https://my-portfolio-back-end.herokuapp.com/api/like/${postId}`,
+        CommentValues
+      ).then((response) => {
+          console.log(response.msg)
+        if(response.status == 400){
+            alert('Already Liked The Post');
+        }
+        else {
+            alert('Please Login before liking');
+        }
+      });
 
-            let blogPosts = {
-                titleInfo: title,
-                fullArticleInfo: body,
-                imgUrlInfo: image,
-                type:`${type}`,
-                comments: comments,
-                likes: likeAdd
-            }
-            localStorage.setItem(postId, JSON.stringify(blogPosts));
-    //     }
-    //     else{
-    //         console.log('Double Click');
-    //     }
-    // });
+
     
 }
