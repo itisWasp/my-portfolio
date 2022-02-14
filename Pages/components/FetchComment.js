@@ -1,25 +1,23 @@
 let ViewComment = () => {
     let output = document.getElementById('output');
 
-    for(i=0; i<localStorage.length; i++) {
-      let key = localStorage.key(i);
-      // console.log(key);
-      if(key === 'email' || key === 'password') {
-        continue;
-      }
-      else {
-        // console.log(key);
-        let view = document.getElementById('output');
-        let arr = JSON.parse(localStorage.getItem(key));
-        let arr2 = JSON.parse(localStorage.getItem('currentLoggedIn'));
-        let title = arr2.storedUserName;
-        let body = arr.comment;
-        let time = arr.timeStamp;
-        let type = arr.type;
-        console.log(arr2);
+    const postValues = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    };
+    const postId = JSON.parse(localStorage.getItem('currentPost'))
+    fetch(`https://my-portfolio-back-end.herokuapp.com/api/Getblog/${postId}`, postValues)
+      .then((response) =>{
+        return response.json();
+      }).then(comment => {
+        console.log('This is the comment of the blogpost ---------->>>>>>>', comment.comment);
 
-        if(type ==  `comment`){
-          
+        for (let i = 0; i < comment.comment.length; i++) {
+          console.log('The comments ------>>>', comment.comment[i]);
+
           let post = `
           <style>
           body{
@@ -220,21 +218,16 @@ let ViewComment = () => {
           
           </style>
 
-          <div class="card" id = '${key}' onclick="viewPost('${key}');" style="cursor: pointer; background-color: #f0f8ff; color: #264653;">
-            <h2>${title}</h2>
-            <h5>${time}</h5>
-            <p>${body}</p>
+          <div class="card" id = '${comment._id}' onclick="viewPost('${comment._id}');" style="cursor: pointer; background-color: #f0f8ff; color: #264653;">
+            <h2>${comment.comment[i].username}</h2>
+            <h5>${comment.comment[i].date}</h5>
+            <p>${comment.comment[i].comment}</p>
           </div>
           `
 
-            view.innerHTML += post;
-
-          
-
-        }
-        
-      }
-    }
+            output.innerHTML += post;
+          }
+          })
 }
 
 // let viewPost = (postId) =>{

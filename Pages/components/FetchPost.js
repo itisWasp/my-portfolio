@@ -1,36 +1,35 @@
 let display = () => {
-    let output = document.getElementById('output');
+  let output = document.getElementById("output");
 
-    for(i=0; i<localStorage.length; i++) {
-      let key = localStorage.key(i);
-      // console.log(key);
-      if(key === 'email' || key === 'password') {
-        continue;
-      }
-      else{
-        // console.log(key);
-        let view = document.getElementById('output');
-        let arr = JSON.parse(localStorage.getItem(key));
-        let title = arr.titleInfo;
-        let body = arr.fullArticleInfo;
-        let image = arr.imgUrlInfo;
-        let time = arr.timeStamp;
-        let type = arr.type;
+  const postValues = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  };
+  fetch("https://my-portfolio-back-end.herokuapp.com/api/Getblog", postValues)
+    .then((response) =>{
+      return response.json();
+    }).then(data => {
+      const blogPosts = data.blog;
+      console.log('BlogPOsts -------->>>>>>>>', blogPosts);
+    
+      for(let i =0; i<blogPosts.length; i++) {
+        console.log(blogPosts[i]);
 
-        if(type ==  `posts`){
-          
-          let post = `
+      let post = `
           <style>
           body{
             font-family: 'Ubuntu', sans-serif;
-          } 
-          
+          }
+
           .topnav {
               overflow: hidden;
               background-color: #264653;
               filter: drop-shadow(0px 1.5px 2px #000000c5);
             }
-          
+
           .topnav a {
               float: left;
               color: white;
@@ -39,15 +38,15 @@ let display = () => {
               text-decoration: none;
               font-size: 30px;
               font-family: 'Ubuntu', sans-serif;
-              
+
           }
-          
+
           .topnav a.blog {
               float: right;
               margin-left: 20px;
               color: black;
           }
-          
+
           .button {
               float: right;
               border: none;
@@ -60,9 +59,9 @@ let display = () => {
               margin: 10px 10px;
               cursor: pointer;
           }
-            
+
           .button2 {
-              border-radius: 50px; 
+              border-radius: 50px;
               color: white;
               background: #24A0ED;
               font-weight: bold;
@@ -72,29 +71,29 @@ let display = () => {
               border:2px solid transparent;
               transition: all 0.4s ease;
           }
-          
+
           .button2:hover{
             border-color:#24A0ED;
             background-color: #fff;
             color:#24A0ED;
           }
-          
+
           .img1{
               float: right;
-              
+
           }
-          
+
           *{
               box-sizing: border-box;
             }
-            
+
             /* Add a gray background color with some padding */
-            body {      
+            body {
               font-family: 'Roboto';
               padding: 20px;
               background: #ffffff;
             }
-            
+
             /* Header/Blog Title */
             .header {
               padding: 30px;
@@ -102,28 +101,28 @@ let display = () => {
               text-align: center;
               background: #f0f8ff;
             }
-            
+
             /* Create two unequal columns that floats next to each other */
             /* Left column */
-            .leftcolumn {   
+            .leftcolumn {
               float: left;
               width: 75%;
             }
-            
+
             /* Right column */
             .rightcolumn {
               float: left;
               width: 25%;
               padding-left: 20px;
             }
-            
+
             /* Fake image */
             .fakeimg {
               background-color: #dde9f0;
               width: 100%;
               padding: 20px;
             }
-            
+
             /* Add a card effect for articles */
             .card {
               background-color: #f0f8ff;
@@ -131,14 +130,14 @@ let display = () => {
               margin-top: 20px;
               color: #0E2431;
             }
-            
+
             /* Clear floats after the columns */
             .row:after {
               content: "";
               display: table;
               clear: both;
             }
-            
+
             /* Footer */
             .footer {
               padding: 20px;
@@ -146,7 +145,7 @@ let display = () => {
               background: #264653;
               margin-top: 20px;
               color: #ffffff;
-              
+
             }
           /*Subscribe Follow Me Area*/
           .form {
@@ -158,7 +157,7 @@ let display = () => {
             padding: 45px;
             text-align: center;
           }
-          
+
           .form input {
             outline: 0;
             background: #ddd;
@@ -171,11 +170,11 @@ let display = () => {
             font-size: 14px;
             font-family: 'Abel';
           }
-          
+
           .form input:focus {
             background: #dbdbdb;
           }
-          
+
           .form button {
             font-family: 'Abel';
             outline: 0;
@@ -190,11 +189,11 @@ let display = () => {
             transition: all 0.3 ease;
             cursor: pointer;
           }
-          
+
           .form button:active {
             background: #395591;
           }
-          
+
           .form span {
             font-size: 75px;
             color: #4b6cb7;
@@ -205,69 +204,38 @@ let display = () => {
   width:100%;
   object-fit: cover;
   border-radius: 12px;
-  
+
           }
-            
+
             /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
             @media screen and (max-width: 800px) {
-              .leftcolumn, .rightcolumn {   
+              .leftcolumn, .rightcolumn {
                 width: 100%;
                 padding: 0;
               }
             }
-          
-          
+
           </style>
 
-          <div class="card" id = '${key}' onclick="viewPost('${key}');" style="cursor: pointer; background-color: #f0f8ff; color: #264653;">
-            <h2>${title}</h2>
-            <h5>${time}</h5>
-            <div class="fakeimg" style="height:200px;"> <img src="${image}" alt="featured image" class="img5"> </div>
+          <div class="card" id = '${blogPosts[i]._id}' onclick="viewPost('${blogPosts[i]._id}');" style="cursor: pointer; background-color: #f0f8ff; color: #264653;">
+            <h2>${blogPosts[i].title}</h2>
+            <h5>${blogPosts[i].date}</h5>
+            <div class="fakeimg" style="height:200px;"> <img src="${blogPosts[i].imgLink}" alt="featured image" class="img5"> </div>
             <a href="./story.html" style="text-decoration: none; color: #24A0ED;">Read Full Story</a>
-            <p>${body}</p>
+            <p>${blogPosts[i].body}</p>
           </div>
           `
 
-            view.innerHTML += post;
+            output.innerHTML += post;
 
-          
+          }
 
-        }
-        
-      }
-    }
-}
+
+    })
+};
 
 let viewPost = (postId) =>{
-  // console.log(postId);
-  let posts = localStorage.getItem(postId);
-  // let reParsing = JSON.parse(posts);
-  console.log(posts);
-  localStorage.setItem('currentPost', posts);
-  window.location.href= '../Blog-Page/story.html';
-
-  // let posts = JSON.parse(JSON.stringify(localStorage.getItem(postId)));
-  // let reParsing = JSON.parse(posts);
-  // console.log(reParsing);
-  // localStorage.setItem('SelectedPost', reParsing);
-
-  // let clickableDiv = document.getElementById(postId);
-  // clickableDiv.addEventListener('click', () => {
-  //   //get key in the local storage
-  //   for(let j=0; j<localStorage.length; j++){
-  //     let newKey = localStorage.key(j);
-  //     if(newKey === 'email' || newKey === 'password'){
-  //       continue;
-  //     }
-  //     else{
-  //       // console.log(newKey);
-  //       let arr = JSON.parse(localStorage.getItem(newKey));
-  //       let title = arr
-  //     }
-  //   }
-    
-  // });
+      console.log('This is the current post ------->>>>>>>>', postId);
+      localStorage.setItem('currentPost', JSON.stringify(postId));
+      window.location.href= '../Blog-Page/story.html';
 }
-
-
-
