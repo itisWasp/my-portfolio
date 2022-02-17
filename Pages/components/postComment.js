@@ -1,10 +1,16 @@
 let newComment = () => {
   let commentSection = document.getElementById("comment");
+  var element = document.getElementById("load");
 
   let commentValue = commentSection.value.trim();
   if (commentValue === "") {
-    alert("Comment Can't be empty");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Comment Can\'t be empty!',
+    })
   } else {
+    element.classList.add("fa");
     const CommentValues = {
       method: "PUT",
       headers: {
@@ -23,8 +29,14 @@ let newComment = () => {
       `https://my-portfolio-back-end.herokuapp.com/api/comment/${currentPost}`,
       CommentValues
     ).then((response) => {
+      element.classList.remove("fa");
       if(response.status == 401 || response.status == 400){
-        alert('Please Login Before Commenting')
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please Login Before Commenting!',
+        })
+        element.classList.remove("fa");
       }
     });
   }

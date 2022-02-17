@@ -134,6 +134,8 @@ form.addEventListener("submit", (e) => {
     const username = document.getElementById("username");
     const email = document.getElementById("email");
     const password2 = document.getElementById("confirmPassword");
+    var element = document.getElementById("load");
+    element.classList.add("fa");
 
     const UserValues = {
       method: "POST",
@@ -153,11 +155,26 @@ form.addEventListener("submit", (e) => {
       .then((data) => {
         console.log(data);
         if (data.message == 'Email already Exists') {
-          alert(data.message)
+          element.classList.remove("fa");
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email already Exists!',
+          })
         }
-        else alert('Registered Successfully Login') ;
+        else {
+          element.classList.remove("fa");
+          swal({
+            title: "Success!",
+            text: "Redirecting in 2 seconds.",
+            type: "success",
+            timer: 2000,
+            showConfirmButton: false
+          }, function(){
+                window.location.href = "login.html";
+          });
+        } ;
       });
-      console.log('Request Sent');
 
       
 

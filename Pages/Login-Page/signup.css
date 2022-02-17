@@ -145,6 +145,10 @@ width: 100%;
   font-family: 'Abel';
 }
 
+.fa {
+  margin-left: -12px;
+  margin-right: 8px;
+}
 
 @media screen and (max-width: 500px) {
   .login{
