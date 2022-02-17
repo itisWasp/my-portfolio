@@ -15,7 +15,7 @@ let ViewComment = () => {
       }).then(comment => {
         console.log('This is the comment of the blogpost ---------->>>>>>>', comment.comment);
 
-        for (let i = 0; i < comment.comment.length; i++) {
+        for (let i = comment.comment.length - 1; i >= 0; i--) {
           console.log('The comments ------>>>', comment.comment[i]);
 
           let post = `

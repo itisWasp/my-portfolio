@@ -16,7 +16,7 @@ let display = () => {
       const blogPosts = data.blog;
       console.log('BlogPOsts -------->>>>>>>>', blogPosts);
     
-      for(let i =0; i<blogPosts.length; i++) {
+      for(let i =blogPosts.length-1; i>=0; i--) {
         console.log(blogPosts[i]);
 
       let post = `

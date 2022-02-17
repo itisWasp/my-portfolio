@@ -101,7 +101,6 @@ let viewUsers = () => {
                   <th> Name</th> 
                   <th> Email</th>
                   <th> Message</th>
-                  <th> Action</th>
                 </tr>
             
                     
@@ -151,16 +150,12 @@ let viewUsers = () => {
     .then((message) => {
       console.log("Returned Query ------>>>>", message);
       let mytable = document.getElementById("mytable");
-      for (i = 0; i < message.length; i++) {
+      for (i = message.length-1; i >=0; i--) {
         let display = `
             <tr class="fetched">
             <td class="long">${message[i].fullname}</td>    
             <td class="lat">${message[i].email}</td>
             <td class="lat">${message[i].messages}</td>
-            <td class="lat"><button type="submit" class="delete" id='${message[i]._id}' onclick="fetch(
-              'https://my-portfolio-back-end.herokuapp.com/api/DeleteContact/${message[i]._id}',
-              ${PostValues}
-            )">Delete</button></td>
             </tr>
             `;
         mytable.innerHTML += display;
