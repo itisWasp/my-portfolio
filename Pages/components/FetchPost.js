@@ -1,5 +1,6 @@
 let display = () => {
   let output = document.getElementById("output");
+  var element = document.getElementById("loadingPage");
 
   const postValues = {
     method: "GET",
@@ -229,6 +230,8 @@ let display = () => {
             output.innerHTML += post;
 
           }
+
+          element.classList.remove("loader");
 
 
     })
