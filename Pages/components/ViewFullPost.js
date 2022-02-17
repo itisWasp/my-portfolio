@@ -1,5 +1,6 @@
 let ViewPost = () =>{
     let output = document.getElementById('output');
+    var element = document.getElementById("loadingPage");
 
     const postValues = {
         method: "GET",
@@ -251,6 +252,7 @@ let ViewPost = () =>{
                     
                     </html>`
                     output.innerHTML = singlePost;
+                    element.classList.remove("loader");
                 })
         }
 
