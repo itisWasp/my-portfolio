@@ -1,6 +1,7 @@
 const form = document.getElementById("login");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
+var element = document.getElementById("load");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -98,6 +99,7 @@ form.addEventListener("submit", function (e) {
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     let message = document.querySelector('.message');
+    element.classList.add("fa");
 
     const UserValues = {
       method: "POST",
@@ -116,15 +118,30 @@ form.addEventListener("submit", function (e) {
       .then((data) => {
         console.log(data);
         if (data.message === "Invalid Password Plz Try Again!" || data.message === "Invalid Email Plz Try Again!" || data.status == 400){
+          element.classList.remove("fa");
             setError(email, '');
             setError(password,'');
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Email or Password Is Invalid!',
+            })
             message.innerHTML = 'Email or Password Is Invalid';
         }
-        else {
+        else {         
             token = data.accessToken;
             localStorage.setItem('user', token);
-            location = "../Blog-Page/blog.html";
-            alert("Successfully Logged In");
+            element.classList.remove("fa");
+
+            swal({
+              title: "Success!",
+              text: "Redirecting in 2 seconds.",
+              type: "success",
+              timer: 2000,
+              showConfirmButton: false
+            }, function(){
+                  window.location.href = "../Blog-Page/blog.html";
+            });
         }
 
       })

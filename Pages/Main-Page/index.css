@@ -587,6 +587,11 @@ textarea:valid+label {
   filter: sepia(0.5);
 }
 
+.fa {
+  margin-left: -12px;
+  margin-right: 8px;
+}
+
 @media only screen and (max-width: 800px) {
   h2 {
     font-size: clamp(40px, 10vw, 60px);

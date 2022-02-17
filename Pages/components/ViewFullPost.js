@@ -333,10 +333,18 @@ let like = (postId) => {
           return response.json()
       }).then(data => {
           if(data.msg === 'Invalid Token'){
-              alert('PLease Login Before Liking');
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'PLease Login Before Liking!',
+              })
           }
           if(data.msg === 'Post Already Liked') {
-              alert('Post Already Liked');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Post Already Liked!',
+              })
           }
       })
 

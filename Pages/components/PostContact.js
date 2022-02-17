@@ -2,10 +2,11 @@ const btn = document.getElementById('sending');
 const email = document.getElementById("senderEmail");
 const fullname = document.getElementById("sender");
 const message = document.getElementById("senderMessage");
+var element = document.getElementById("load");
 
 btn.addEventListener('submit', (e) => {
   e.preventDefault()
-  
+  element.classList.add("fa");
   const ContactValues = {
     method: "POST",
     headers: {
@@ -25,8 +26,8 @@ btn.addEventListener('submit', (e) => {
     ContactValues
   ).then((response) => {
     if(response.status == 200) {
-      alert('Your Request was successful Sent');
-      location.reload();
+      element.classList.remove("fa");
+      swal("Your Request was successful Sent", "Thank you for Reaching out :)", "success")
     }
   });
 
