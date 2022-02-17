@@ -30,8 +30,9 @@
     <script src="../components/footer.js"></script>
     <script src="../components/NewPost.js"></script>
     <script src="../components/modifyPost.js"></script>
-    <script src="../components/getGeoLocation.js"></script>
     <script src="../components/FetchUsers.js"></script>
+    <script src="../components/getGeoLocation.js"></script>
+    <script src="../components/Protected.js"></script>
     <script src="Logout.js"></script> 
     
  
@@ -45,7 +46,7 @@
 
     </head>
 
-<body style="background-color: #FFFFFF">
+<body style="background-color: #FFFFFF" onload="preventLoad();">
   <the-beginning></the-beginning>
       
       <div class="row">
@@ -68,7 +69,7 @@
             <table>
                 <tr><td onclick="newPost()">New Post</td></tr>
                 <tr><td onclick="modifyPost()">Modify Post</td></tr>
-                <tr><td onclick="viewUsers()">Users</td></tr>
+                <tr><td onclick="viewUsers()">Contact Queries</td></tr>
                 <tr><td onclick="getGeoLocation()">Users Location</td></tr>
                 </table>
           </div>

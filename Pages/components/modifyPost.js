@@ -159,100 +159,103 @@ let modifyPost = () => {
     view.innerHTML = `${post}`;
 
 
-    for(let i =0; i<localStorage.length; i++){
-        let key = localStorage.key(i);
-        if(key === 'email' || key === 'password'){
-            continue;
-        }
-        else{
-            let list = document.getElementById('result1');
-            let arr = JSON.parse(localStorage.getItem(key));
-            let title = arr.titleInfo;
-            let body = arr.fullArticleInfo;
-            let image = arr.imgUrlInfo;
-            let type = arr.type;
-            if(type == `posts`){
+    const postValues = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      };
+      fetch("https://my-portfolio-back-end.herokuapp.com/api/Getblog", postValues)
+        .then((response) =>{
+          return response.json();
+        }).then(data => {
+          const blogPosts = data.blog;
+          console.log('BlogPOsts -------->>>>>>>>', blogPosts);
+
+          let list = document.getElementById('result1');
+        
+          for(let i =0; i<blogPosts.length; i++) {
+            console.log(blogPosts[i]);
+
                 let display = `
 
                 <div class="articleContainer">
-                <img src="${image}" class="articleImage">
+                <img src="${blogPosts[i].imgLink}" class="articleImage">
                 <div class="titleBodyButtons">
-                    <input type="text" class="articleTitle" id='title' placeholder="Blog Title" value="${title}"></p>
-                    <input type="url" class="articleTitle" id='image'placeholder="Image Link" value="${image}"></p>
-                    <textarea class="articleBody" id='body'>${body}</textarea>
+                    <input type="text" class="articleTitle" id='title' placeholder="Blog Title" value="${blogPosts[i].title}"></p>
+                    <input type="url" class="articleTitle" id='image'placeholder="Image Link" value="${blogPosts[i].imgLink}"></p>
+                    <textarea class="articleBody" id='body'>${blogPosts[i].body}</textarea>
                     <div class="articleBtns">
-                        <button type="submit" class="save" id='${key}' onclick="saveChange('${key}')">Save</button>
-                        <button type="submit" class="delete" id='${key}' onclick="deletePost('${key}')">Delete</button>
+                        <button type="submit" class="save" id='${blogPosts[i]._id}' onclick="saveChange('${blogPosts[i]._id}')">Save</button>
+                        <button type="submit" class="delete" id='${blogPosts[i]._id}' onclick="deletePost('${blogPosts[i]._id}')">Delete</button>
                     </div>
                 </div>                
                 <div>
                 <br/>
                 `
                 list.innerHTML += display;
-            }
-        }
-    }
+
+          }
+        });
 }
 
 let saveChange = (postId) => {
-    let item = JSON.parse(localStorage.getItem(postId));
-    console.log(item);
-    let titleLocalStorage = item.titleInfo;
-    let imageLocalStorage = item.imgUrlInfo;
-    let bodyLocalStorage = item.fullArticleInfo;
 
     let titleThisArticle = document.getElementById('title').value.trim();
     let imageThisArticle = document.getElementById('image').value.trim();
     let bodyThisArticle = document.getElementById('body').value.trim();
 
-    // if(titleThisArticle === titleLocalStorage){
-    //     continue;
-    // }
-    if(titleThisArticle !== titleLocalStorage){
-        let blogPosts = {
-            titleInfo: titleThisArticle,
-            fullArticleInfo: bodyLocalStorage,
-            imgUrlInfo: imageLocalStorage,
-            type:`posts`
-        }
-        localStorage.setItem(postId, JSON.stringify(blogPosts));
-        location.reload();
-        alert('Saved Successfully');
-    }
+    const PostValues = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        'auth-token' : localStorage.getItem('Adminuser')
+      },
+      body: JSON.stringify({
+        Title: titleThisArticle,
+        Body: bodyThisArticle,
+        ImageLink: imageThisArticle,
+      }),
+    };
 
-    else if(imageThisArticle !== imageLocalStorage){
-        let blogPosts = {
-            titleInfo: titleLocalStorage,
-            fullArticleInfo: bodyLocalStorage,
-            imgUrlInfo: imageThisArticle,
-            type:`posts`
-        }
-        localStorage.setItem(postId, JSON.stringify(blogPosts));
-        location.reload();
-        alert('Saved Successfully');
-    }
-
-    else if(bodyThisArticle !== bodyLocalStorage){
-        let blogPosts = {
-            titleInfo: titleLocalStorage,
-            fullArticleInfo: bodyThisArticle,
-            imgUrlInfo: imageLocalStorage,
-            type:`posts`
-        }
-        localStorage.setItem(postId, JSON.stringify(blogPosts));
-        location.reload();
-        alert('Saved Successfully');
-    }
-
-    else{
-        alert('No Changes Made...');
-        location.reload();
-    }
+    fetch(
+      `https://my-portfolio-back-end.herokuapp.com/api/Updateblog/${postId}`,
+      PostValues
+    ).then(response => {
+      if (response.status == 200){
+        alert('Updated blog post successfully');
+        return response.json();
+      }
+      if (response.status == 400 || response.status == 401) {
+        alert('Can\'t update blog post');
+      }
+    });
     
 }
 
 let deletePost = (postId) => {
-    // console.log('Test');
-    localStorage.removeItem(postId);
-    location.reload();
+  const PostValues = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      'auth-token' : localStorage.getItem('Adminuser')
+    }
+  };
+
+  fetch(
+    `https://my-portfolio-back-end.herokuapp.com/api/Deleteblog/${postId}`,
+    PostValues
+  ).then(response => {
+    if (response.status == 200){
+      alert('Deleted blog post successfully');
+      return response.json();
+    }
+    if (response.status == 400 || response.status == 401) {
+      alert('Can\'t Delete blog post');
+    }
+  });
+    // location.reload();
 }

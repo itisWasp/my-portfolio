@@ -213,10 +213,10 @@ font-family: 'Abel';
                 <div class="error"></div><br/>
                 </div>
                 
-                <label for="photo" class="cen1">Link of featured image:</label><br/><br/>
-                <input type="url" id="imageLink" class="cen" required>
+                <!--<label for="photo" class="cen1">Link of featured image:</label><br/><br/>-->
+                <!--<input type="url" id="imageLink" class="cen" required>-->
                 <!--<textarea name="fullart" id="imageLink" cols="10" rows="1" class="cen"></textarea><br/>-->
-                <!--<input type="file" id="myFile" name="filename" class="cen2"><br/><br/>-->
+                <input type="file" id="fileUpload" name="fileUpload" class="cen"><br/><br/>
                 <input type="submit" value="POST" class="btn1">
                 <div class="message"></div>
                 
@@ -289,6 +289,13 @@ font-family: 'Abel';
 
   // console.log(Postsblog.title);
 
+  const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+
   form.addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -299,6 +306,40 @@ font-family: 'Abel';
 
       if(isFormValid) {
       
+      const uploadedFile = document.querySelector('#fileUpload').files[0];
+      toBase64(uploadedFile)
+      .then(res => {
+        const CommentValues = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            'auth-token' : localStorage.getItem('Adminuser')
+          },
+          body: JSON.stringify({
+            Title: title.value,
+            Body: fullArticle.value,
+            ImageLink: res
+          }),
+        };
+
+        fetch(
+          `https://my-portfolio-back-end.herokuapp.com/api/Postblog`,
+          CommentValues
+        ).then((response) => {
+          return response.json();
+        }).then(message => {
+          if(message.msg === 'Invalid Token'){
+            alert('Please Login before Posting');
+          }
+          if(message.status == 200){
+            alert('Post Created Successfully');
+          }
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      })
         
 
       }

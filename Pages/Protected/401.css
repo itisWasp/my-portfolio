@@ -1,0 +1,54 @@
+* {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+	text-align: center;
+	margin: 0;
+	background: linear-gradient(120deg, #264653 0%, #0E2431 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: #fff;
+}
+
+img {
+	width: 250px;
+	margin: auto;
+	padding-top: 3em;
+}
+
+h1 {
+	font-weight: 200;
+	font-size: 4em;
+	margin: 1em;
+}
+
+p {
+	font-size: 1.2em;
+}
+
+.button {
+    background-color: #264653; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2em;
+    margin: 1em 0.5em;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button2 {
+    background-color: white; 
+    color: #264653; 
+    border: 2px solid #ffae00;
+  }
+  
+  .button2:hover {
+    background-color: #264653;
+    color: white;
+  }
+  
