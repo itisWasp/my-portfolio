@@ -122,13 +122,14 @@ form.addEventListener("submit", function (e) {
         }
         else {
             alert("Admin Successfully Logged In");
+            token = data.accessToken;
+            localStorage.setItem('Adminuser', token);
+
+            location = "../Dashboard_Admin/admin.html";
         }
 
 
-        token = data.accessToken;
-        localStorage.setItem('Adminuser', token);
-
-        location = "../Dashboard_Admin/admin.html";
+        
 
 
       })
